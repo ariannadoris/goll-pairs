@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="goll.css">
+    <link id="colorcss" rel="stylesheet" type="text/css" href="goll-black.css">
+    <!-- load the lovely sentences -->
+    <script src="text.js"></script>
+
+    <!-- game settings-->
+    <script src="colors.js"></script>
+
+    <!-- index cards -->
+    <script src="archive.js"></script>
+
+    <!-- game logics -->
+    <script src="goll.js" async></script>
+
+    <!-- the plugin that displays the index cards-->
+    <link href="lightgallery/lightgallery.css" rel="stylesheet">
+    <script src="lightgallery/lightgallery.js"></script>
+
+    <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Goll Pairs</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta charset="UTF-8"/>
+</head>
+<body>
+    <h1 class="page-title">Goll Pairs</h1>
+
+    <div id="wrapper" class="black">
+
+        <div class="congratulations hidden" id="you-won"></div> <!-- container for lovely sentences -->
+
+        <div id="gallery" style="visibility: hidden;" >
+            <div id="lightgallery"></div> <!-- container for index cards -->
+        </div>
+
+        <div class="colorbar"> <!-- game settings bar -->
+            <ul class="color-select">
+                <li class="black circle" onclick="changeColor(0);">&nbsp;</li>
+                <li class="white circle" onclick="changeColor(1);">&nbsp;</li>
+                <li class="yellow circle" onclick="changeColor(2);">&nbsp;</li>
+                <li class="orange circle" onclick="changeColor(3);">&nbsp;</li>
+                <li class="pink circle" onclick="changeColor(4);">&nbsp;</li>
+                <li class="red circle" onclick="changeColor(5);">&nbsp;</li>
+                <li class="purple circle" onclick="changeColor(6);">&nbsp;</li>
+                <li class="blue circle" onclick="changeColor(7);">&nbsp;</li>
+                <li class="green circle" onclick="changeColor(8);">&nbsp;</li>
+                <li class="brown circle" onclick="changeColor(9);">&nbsp;</li>
+                <li class="circle music-off circle-lightgrey" id="music" onclick="toggleMusic()"></li>
+                <li class="circle sound-off circle-lightgrey" id="sound" onclick="toggleSound()"></li>
+                <li class="circle back circle-lightgrey" onclick="window.history.back()"></li>
+            </ul>
+        </div>
+
+        <!-- game container -->
+        <div class="goll-container unselectable" id="board">
+
+            <!-- status bar and walk-away/cheat buttons -->
+            <div class="goll-info-container" id="status">
+                <div class="goll-info">
+                    Time: <span id="time-remaining">00:00:00</span>
+                    <div class="goll-action-right">
+                        <span id="skip-action" class="action-button"><div class="sneakers-icon"></div></span>
+                    </div>
+                </div>
+                <div class="goll-info">
+                    Best: <span id="highscore">0</span>
+                </div>
+                <div class="goll-info">
+                    Score: <span id="score">0</span>
+                    <div class="goll-action-center">
+                        <span id="cheat-action" class="action-button"><div class="cheat-icon"></div></span>
+                    </div>
+                </div>
+                <div class="goll-info">
+                    Moves: <span id="moves">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- load audio assets -->
+    <audio id="flip-card">
+        <source src="assets/card-flip.wav" type="audio/wav">
+    </audio>
+    <audio id="match-card">
+        <source src="assets/card-match.wav" type="audio/wav">
+    </audio>
+    <audio id="nomatch-card">
+        <source src="assets/card-nomatch.wav" type="audio/wav">
+    </audio>
+    <audio id="win-game">
+        <source src="assets/win-game.mp3" type="audio/mp3">
+    </audio>
+    <audio id="shuffle">
+        <source src="assets/shuffle.wav" type="audio/wav">
+    </audio>
+    <audio id="intro-music" loop>
+        <source src="assets/intro.mp3" type="audio/mp3">
+    </audio>
+    <audio id="skip-button">
+        <source src="assets/skip-button.wav" type="audio/wav">
+    </audio>
+
+    <!-- load lightgallery plugins -->
+    <script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
+    <script src="https://cdn.rawgit.com/sachinchoolur/lg-pager.js/master/dist/lg-pager.js"></script>
+    <script src="https://cdn.rawgit.com/sachinchoolur/lg-zoom.js/master/dist/lg-zoom.js"></script>
+ 
+    
+</body>
+</html>

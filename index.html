@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <link rel="stylesheet" type="text/css" href="goll.css">
+   <link id="colorcss" rel="stylesheet" type="text/css" href="goll-black.css">
+   <script src="colors.js"></script>
+   <title>Goll Pairs</title>
+
+   <!-- favicons -->
+   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+   <link rel="manifest" href="site.webmanifest">
+   <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+   <meta name="msapplication-TileColor" content="#da532c">
+   <meta name="theme-color" content="#ffffff">
+
+   <meta content="width=device-width, initial-scale=1" name="viewport"/>
+   <meta charset="UTF-8"/>
+</head>
+<body>
+
+    <h1 class="page-title"><a class="logolink" href="about.html">Goll Pairs</a></h1>
+    
+    <div class="colorbar"> 
+        <ul class="color-select">
+            <li class="black circle" onclick="changeColor(0);">&nbsp;</li>
+            <li class="white circle" onclick="changeColor(1);">&nbsp;</li>
+            <li class="yellow circle" onclick="changeColor(2);">&nbsp;</li>
+            <li class="orange circle" onclick="changeColor(3);">&nbsp;</li>
+            <li class="pink circle" onclick="changeColor(4);">&nbsp;</li>
+            <li class="red circle" onclick="changeColor(5);">&nbsp;</li>
+            <li class="purple circle" onclick="changeColor(6);">&nbsp;</li>
+            <li class="blue circle" onclick="changeColor(7);">&nbsp;</li>
+            <li class="green circle" onclick="changeColor(8);">&nbsp;</li>
+            <li class="brown circle" onclick="changeColor(9);">&nbsp;</li>
+        </ul>
+    </div>
+
+    <div class="intro-video">
+        <video id="introvideo" width="720" height="512" autoplay muted>
+            <source id="source" src="assets/goll-black.webm" type="video/ogv">
+        </video>
+        <script>
+            document.getElementById('introvideo').addEventListener('ended', function() { 
+                document.getElementById("start").classList.add("blink");   
+            }, false);
+        </script>
+
+    </div>
+
+    <div class="audiobar">
+        <audio id="intro-music" loop>
+            <source src="assets/intro.mp3" type="audio/mp3">
+        </audio>
+        <div class="left">
+            <span id="music" class="button music-off sound-button" onclick="toggleMusic()"></span>
+        </div>
+        <div class="right">
+            <span id="sound" class="button sound-off sound-button" onclick="toggleSound()"></span>
+        </div>
+    </div>
+   
+    <div class="bottom">
+        <div class="left">
+            <a href="story.html" class="button">Story</a>
+        </div> 
+        <div class="right">
+            <a id="start" href="board.html" class="button">Start</a>
+        </div>
+    </div>
+    
+    <script>
+        initDefaults();
+        loadColor();
+    </script>
+</body>
+</html>
