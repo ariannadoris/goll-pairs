@@ -44,18 +44,19 @@ class Logics {
                 sound.currentTime = 0;
                 sound.loop= false;
                 sound.play();
+                console.log("Play sound " + name);
             }
         }
     }
 
     playMusic(name) {
-        let soundEnabled = localStorage.getItem("sound");
-        if(soundEnabled == 1) {
-            let sound = document.getElementById(name);
-            if(sound!=null) {
-                sound.currentTime = 0;
-                sound.loop= true;
-                sound.play();
+        let musicEnabled = localStorage.getItem("music");
+        if(musicEnabled == 1) {
+            let music = document.getElementById(name);
+            if(music!=null) {
+                //music.currentTime = 0;
+                music.loop= true;
+                music.play();
             }
         }
     }
@@ -148,10 +149,9 @@ class Logics {
             this.playMusic("intro-music");
         }
 
-        this.playSound("shuffle");
-
         setTimeout(() => {
             this.busy = false;
+            this.playSound("shuffle");
             this.shuffleDeck();
             this.evalCheatButton();
             document.getElementById('board').classList.add('visible');
@@ -362,9 +362,6 @@ function layout()
 
     let newCards = Array.from(document.getElementsByClassName('card'));
     newCards.forEach( c=> {
-
-        console.log(c);
-
         c.addEventListener('click', () => {
             if( !c.classList.contains("inactive")) {
                 console.log("Clicked card "+ c.getElementsByTagName("img")[0].getAttribute("src"));
@@ -429,9 +426,10 @@ function restoreGame() {
         timeRemaining = 0;
     }
 }
-
+/*
 if(document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', ready());
 } else {
     ready();
 }
+*/
