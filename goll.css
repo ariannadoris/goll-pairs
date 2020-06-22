@@ -342,7 +342,7 @@ ul li:hover {
  }
 
  .card-back:active {
-     cursor: grabbing;
+     cursor: url(assets/grabbing.png) 2 2, pointer;
  }
  
 
