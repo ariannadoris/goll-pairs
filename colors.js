@@ -33,9 +33,19 @@ function changeColor(index) {
 
     if(typeof video !== undefined) {
         if(source != null) {
-            source.setAttribute("src", "assets/goll-"+ colorMaps[index] + (isChrome ? ".mp4" : ".webm"));
-            source.setAttribute("type", "video/" + (isChrome ? "mp4": "webm"));
-            console.log("Loaded " + (isChrome ? "mp4" : "webm"));
+            if( video.canPlayType("video/webm; codecs=vp9") === "probably" ){
+                source.setAttribute("src", "assets/goll-"+ colorMaps[index] + ".webm");
+                source.setAttribute("type", "video/webm");
+                console.log("Probably can play webm/vp9");
+            }
+            else if( video.canPlayType("video/mp4; codecs=h264") === "probably") {
+                source.setAttribute("src", "assets/goll-"+ colorMaps[index] + ".mp4");
+                source.setAttribute("type", "video/mp4");
+                console.log("Probably can play mp4/h264");
+            }
+            else {
+                console.log("Browser does not play mp4 or webm video files");
+            }
         }
         if(video != null) {
             video.load();
