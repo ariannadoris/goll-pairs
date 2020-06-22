@@ -617,7 +617,7 @@ video {
   
   .tooltip .tooltiptext {
     font-family: Lato-Regular,Arial;
-    font-size: calc(8px + 0.5vw);
+    font-size: calc(12px + 0.1vw);
     visibility: hidden;
     width: 120px;
     border:1px solid #404040;
