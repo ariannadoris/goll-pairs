@@ -567,14 +567,12 @@
             for( let i = 0; i < containers.length; i ++ ) {
                 document.getElementById(containers[i]).classList.add("hidden");
                 document.getElementById(containers[i]).classList.remove("visible");
-                console.log("Hide " + containers[i]);
             }
         }
 
         function show(containerName) {
             document.getElementById(containerName).classList.remove("hidden");
             document.getElementById(containerName).classList.add("visible");
-            console.log("Show " + containerName);
         }
 
         function onAboutClicked() {
