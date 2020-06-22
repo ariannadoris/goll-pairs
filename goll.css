@@ -609,6 +609,33 @@ video {
     text-align:center;
 }
 
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  
+  .tooltip .tooltiptext {
+    font-family: Lato-Regular,Arial;
+    font-size: calc(8px + 0.5vw);
+    visibility: hidden;
+    width: 120px;
+    border:1px solid #404040;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    margin-left: -60px;
+    margin-top: 16px;
+  }
+    
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
 @keyframes fade-out {
     0% {
       opacity: 1;
