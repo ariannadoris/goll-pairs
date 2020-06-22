@@ -23,6 +23,10 @@ html {
     min-height: 100vh;
 }
 
+.is-action {
+    cursor: pointer;
+}
+
 .page-title {
     font-family:Zapfino, serif;
     font-weight: normal;
@@ -33,11 +37,7 @@ html {
 }
 
 .logolink, .logolink:visited, .logolink:active, .logolink:hover {
-    font-family:Zapfino, serif;
-    font-weight: normal;
-    text-align: center;
     text-decoration: none;
-    font-size:10vh;
 }
 
 .story-container {
@@ -48,6 +48,13 @@ html {
     scroll-behavior: smooth;
     width:100%;
     margin:0 auto;
+}
+
+.about-container {
+    scroll-behavior: smooth;
+    width:100%;
+    margin:0 auto;
+    text-align:center;
 }
 
 .title {
@@ -226,6 +233,10 @@ ul li:hover {
 
 .hidden {
     display:none;
+}
+
+.visble {
+    display:block;
 }
 
 .goll-action-right {
@@ -428,21 +439,6 @@ ul li:hover {
     animation-iteration-count: 3;
 }
 
-.GeneratedMarquee {
-    font-family: 'Lato-Regular', 'Arial';
-    font-size:1.77vw;
-    padding:1.5em;
-    height:60vh;
-}
-
-.GeneratedMarquee2 {
-    font-family: 'Lato-Regular', 'Arial';
-    font-size:1.77vw;
-    line-height: 1.5vh;
-    padding:1.5em;
-    height:60vh;
-}
-
 video {
     text-align:center;
     margin:0 auto;
@@ -581,10 +577,46 @@ video {
     -webkit-animation: marquee 330s linear infinite; 
 }
 
-.marquee span.paused {
+.marquee-about {
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-top:55vh;
+    height:55vh;
+    text-align:center;
+}
+
+.marquee-about span {
+    display: inline-block;
+    text-indent: 0;
+    line-height: 4vh;
+    font-size:calc(8px + 1.25vw);
+    animation: marquee 30s linear infinite;
+    text-align:center;
+    -webkit-animation: marquee 30s linear infinite; 
+}
+
+.marquee span.paused, .marquee-about span.paused {
     animation-play-state: paused;
     -webkit-animation-play-state: paused;
 }
+
+.hint {
+    animation: fade-out 3s 1;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+    font-size:calc(8px + 0.5vw);
+    text-align:center;
+}
+
+@keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
 
 @keyframes play {
     from { background-position-x:    0px; }
@@ -727,13 +759,9 @@ video {
         font-size:5vw;
         margin-bottom:0px;
         margin-top:0px;
-    }
-    
-    .logolink, .logolink:visited, .logolink:active, .logolink:hover {
-        font-size:5vw;
-    }
-
-    .marquee span {
+    } 
+   
+    .marquee span, .marquee-about span {
         line-height: 5vh;
         font-size:calc(10px + 1.25vh);
     }
@@ -817,14 +845,9 @@ video {
         margin-top:0px;
     }
 
-        
-    .logolink, .logolink:visited, .logolink:active, .logolink:hover {
-        font-size:10vw;
-    }
-
-    .marquee span {
-        line-height: 2vh;
-        font-size:calc(10px + 1.0vh);
+    .marquee span, .marquee-about span {
+        line-height: 2.0vh;
+        font-size:calc(10px + 0.75vh);
     }
 }
 

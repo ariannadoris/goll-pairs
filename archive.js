@@ -63,7 +63,7 @@ function createLink(id, array) {
 
         name = "archive/" + id + "/" + id + seq + ".jpg";
 
-        item += "<a " + (i == 0 ? "id=\"start\"" : "" )  +  " href=\"" + name + "\"><img src=\""+ name + "\"></a>\n";
+        item += "<a " + (i == 0 ? "id=\"first-index-card\"" : "" )  +  " href=\"" + name + "\"><img src=\""+ name + "\"></a>\n";
     }
     return item;
 }
@@ -77,6 +77,6 @@ function createGallery(name,array)
 function displayIndexCards(key) {
     let ic = indexCards.get(key);
     createGallery(ic.source(), ic.elements());
-    document.getElementById("start").click();
+    document.getElementById("first-index-card").click();
     return true;
 }

@@ -8,7 +8,6 @@ body {
 }
 
 .logolink, .logolink:visited, .logolink:active, .logolink:hover {
-    text-shadow: 2px 12px 4px #404040;
     color:black;
 }
 

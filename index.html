@@ -1,9 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
    <link rel="stylesheet" type="text/css" href="goll.css">
    <link id="colorcss" rel="stylesheet" type="text/css" href="goll-black.css">
+   <!-- load the lovely sentences -->
+   <script src="text.js"></script>
+
+   <!-- game settings-->
    <script src="colors.js"></script>
+
+   <!-- index cards -->
+   <script src="archive.js"></script>
+
+   <!-- game logics -->
+   <script src="goll.js" async></script>
+
+   <!-- the plugin that displays the index cards-->
+   <link href="lightgallery/lightgallery.css" rel="stylesheet">
+   <script src="lightgallery/lightgallery.js"></script>
+
    <title>Goll Pairs</title>
 
    <!-- favicons -->
@@ -14,65 +29,569 @@
    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
    <meta name="msapplication-TileColor" content="#da532c">
    <meta name="theme-color" content="#ffffff">
-
+   <meta name="description" content="Concentration Game, Card Game, Memory Card Game, Pairs Card Game, Pairs, Memory, Claire Goll, Yvan Goll">
    <meta content="width=device-width, initial-scale=1" name="viewport"/>
    <meta charset="UTF-8"/>
 </head>
 <body>
 
-    <h1 class="page-title"><a class="logolink" href="about.html">Goll Pairs</a></h1>
+    <div id="main">
+        <h1 class="page-title is-action" onClick="onAboutClicked();">Goll Pairs</h1>
+        
+        <div class="colorbar"> 
+            <ul class="color-select">
+                <li class="black circle" onclick="changeColor(0);">&nbsp;</li>
+                <li class="white circle" onclick="changeColor(1);">&nbsp;</li>
+                <li class="yellow circle" onclick="changeColor(2);">&nbsp;</li>
+                <li class="orange circle" onclick="changeColor(3);">&nbsp;</li>
+                <li class="pink circle" onclick="changeColor(4);">&nbsp;</li>
+                <li class="red circle" onclick="changeColor(5);">&nbsp;</li>
+                <li class="purple circle" onclick="changeColor(6);">&nbsp;</li>
+                <li class="blue circle" onclick="changeColor(7);">&nbsp;</li>
+                <li class="green circle" onclick="changeColor(8);">&nbsp;</li>
+                <li class="brown circle" onclick="changeColor(9);">&nbsp;</li>
+            </ul>
+        </div>
+
+        <div class="intro-video">
+            <video id="introvideo" width="720" height="512" autoplay muted>
+                <source id="source" src="assets/goll-black.webm" type="video/ogv">
+            </video>
+            <script>
+                document.getElementById('introvideo').addEventListener('ended', function() { 
+                    document.getElementById("start").classList.add("blink");   
+                }, false);
+            </script>
+
+        </div>
+
+        <div class="audiobar">
+            <div class="left">
+                <span id="music1" class="button music-off sound-button" onclick="toggleMusic();"></span>
+            </div>
+            <div class="right">
+                <span id="sound1" class="button sound-off sound-button" onclick="toggleSound();"></span>
+            </div>
+        </div>
     
-    <div class="colorbar"> 
-        <ul class="color-select">
-            <li class="black circle" onclick="changeColor(0);">&nbsp;</li>
-            <li class="white circle" onclick="changeColor(1);">&nbsp;</li>
-            <li class="yellow circle" onclick="changeColor(2);">&nbsp;</li>
-            <li class="orange circle" onclick="changeColor(3);">&nbsp;</li>
-            <li class="pink circle" onclick="changeColor(4);">&nbsp;</li>
-            <li class="red circle" onclick="changeColor(5);">&nbsp;</li>
-            <li class="purple circle" onclick="changeColor(6);">&nbsp;</li>
-            <li class="blue circle" onclick="changeColor(7);">&nbsp;</li>
-            <li class="green circle" onclick="changeColor(8);">&nbsp;</li>
-            <li class="brown circle" onclick="changeColor(9);">&nbsp;</li>
-        </ul>
-    </div>
-
-    <div class="intro-video">
-        <video id="introvideo" width="720" height="512" autoplay muted>
-            <source id="source" src="assets/goll-black.webm" type="video/ogv">
-        </video>
-        <script>
-            document.getElementById('introvideo').addEventListener('ended', function() { 
-                document.getElementById("start").classList.add("blink");   
-            }, false);
-        </script>
-
-    </div>
-
-    <div class="audiobar">
-        <audio id="intro-music" loop>
-            <source src="assets/intro.mp3" type="audio/mp3">
-        </audio>
-        <div class="left">
-            <span id="music" class="button music-off sound-button" onclick="toggleMusic()"></span>
-        </div>
-        <div class="right">
-            <span id="sound" class="button sound-off sound-button" onclick="toggleSound()"></span>
+        <div class="bottom">
+            <div class="left">
+                <div class="button is-action" onclick="onStoryClicked();">Story</div>
+            </div> 
+            <div class="right">
+                <div id="start" class="button is-action" onclick="onGameClicked();">Start</div>
+            </div>
         </div>
     </div>
+
+    <div id="about" class="hidden">
+        <div class="about-container">
+            <h1 class="page-title">About Goll Pairs</h1>
+            <p class="hint">(Click to Pause)</p>
+            <p id="about-paused" class="hint hidden">(Click to resume)</p>
+            <p class="marquee-about" id="about-story">
+               <span id="about-scroller">
+               
+                    Goll Pairs<br/>
+                    <br/>
+                    A card game about the lives of<br/>
+                    Yvan and Claire Goll<br/>
+                    from<br/>
+                    <a class="logolink" target="_blank" rel="noopener noreferrer" href="https://www.saint-die.eu/culture/musee-pierre-noel">Musée Pierre-Noël de Saint-Dié-des-Vosges</a><br/>
+                    <br/>
+                    <br/>
+
+                    The digital copies are made available by<br/>
+                    <a class="logolink" target="_blank" rel="noopener noreferrer" href="https://www.saint-die.eu/">the municipality of Saint-Dié-des-Vosges</a><br/>
+                    in cooperation with<br/>
+                    <a class="logolink" target="_blank" rel="noopener noreferrer" href="https://www.k8.design/k8-start">K8 Institute for Strategic Aesthetics GmbH</a><br/>
+                    and<br/>
+                    <a class="logolink" target="_blank" rel="noopener noreferrer" href="https://www.saarland.de/ministerium_bildung_kultur.htm">Ministry of Education and Culture of Saarland</a><br/>
+        
+                    <br/>
+                    <br/>
+        
+                    Gameplay by<br/>
+                    Niels Elburg and &nbsp;<a class="logolink" href="https://dorisahlgrimm.de/">Arianna Doris Ahlgrimm</a><br/>
+
+                    <br/>
+                    <br/>
+                    
+                    Music and Sound by<br/>
+                    <a class="logolink" target="_blank" rel="noopener noreferrer" href="http://encelade.info">Encelade</a><br/>
+                    <br/>
+
+                    Intro Video by<br/>
+                    <a class="logolink" target="_blank" rel="noopener noreferrer" href="https://www.eric-schwarz.com">Eric Schwarz</a><br/>
+                    
+                    <br/>
+                    Digitization by<br/>
+                    Henrik Elburn<br/>
+                    <br/>
+        
+                    <br/>
+                    Special thanks to Coding Da Vinci Saar-Lor-Lux 2020<br/>
+        
+                    <br/>
+                    Coding da Vinci is a German open cultural data hackathon<br/>
+                    Founded in Berlin in 2014, Coding da Vinci brings cultural heritage<br/>
+                    institutions together with the hacker & designer community to<br/>
+                    develop ideas and prototypes<br/>
+                    for the cultural sector and for the public.<br/>
+        
+                    <br/>
+                    Whilst a classic hackathon offers its participants only a short time frame<br/>
+                    - typically a weekend -<br/>
+                    to develop software applications<br/>
+                    Coding da Vinci runs for a total of at least 6 weeks.<br/>
+                    
+                    <br/>
+                    This extended timeframe provides much-needed space for the<br/>
+                    formerly separate worlds of creative technology and cultural<br/>
+                    heritage to interact with and learn from each other.<br/>
+        
+                    <br/>
+                    The sprint begins with a two-day kick-off event:<br/>
+                    plenty of time for institutions to present their data sets,<br/>
+                    and for participants to make contact with the institutions,<br/>
+                    develop project ideas and make teams<br/>
+        
+                    <br/>
+                    Over the following weeks, the teams develop<br/>
+                    and submit their prototypes<br/>
+                    before presenting them at the public award ceremony<br/>
+        
+                    <br/>
+                    Special thanks for sound go to<br/>
+                    <a class="logolink" href="https://freesound.org/people/f4ngy">f4ngy, for "Card Flip" and "Bridging Cards"</a><br/>
+                    <a class="logolink" href="https://freesound.org/people/qubodup">qubodup, for "Puzzle Error"</a><br/>
+                
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+      
+      
+               </span>
+            </p>
+         </div>
+    
+         <div class="bottom">
+            <ul>
+                <li><div class="button zapbutton is-action" onclick="onMainClicked();">Back</div></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="gollstory" class="hidden">
+        <h1 class="page-title">The Story of Claire and Yvan Goll</h1>
+
+        <div class="story-container">
+            <p class="hint">(Click to Pause)</p>
+            <p id="story-paused" class="hint hidden">(Click to resume)</p>
+            <p class="marquee" id="story">
+                <span class="text" id="scroller">
+
+                Unser Paare-Spiel beruht auf einem Datenset, des &#187; Fond Claire<br/>   
+                und Yvan Goll &#171;. Im Rahmen einer Forschungs-Kooperation sind<br/>
+                die Karteikarten des Fond Claire und Yvan Goll des Musée Pierre-<br/>
+                Noël de Saint-Dié-des-Vosges digitalisiert und um weitere Bilder<br/> 
+                zur Bibliothek und weiteren Objekten aus dem Bestand des<br/> 
+                Museums ergänzt.<br/>
+                
+                <br/>
+                <br/>
+
+                Es handelt sich um handschriftliche Karteikarten (Vor- und<br/>
+                Rückseiten, insgesamt 2288 Einzeldateien) sowie Buchrücken<br/>
+                (231 Einzeldateien) - ein umfangreicher Schatz verschiedenster<br/>
+                Inhalte. Die Originale sind im Besitz und aus dem Bestand des<br/>
+                Musée Pierre-Noël de Saint-Dié-des-Vosges. <br/>
+                Die digitalen Spielkarten verweisen in einem ersten Schritt auf <br/>
+                originale Illustrationen, die den Karteikarten entnommen sind.<br/>
+                In einem weiteren Schritt leiten Sie ebenfalls zu <br/>
+                den Digitalisaten der Archivkarten.<br/>
+
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+
+
+                Claire Goll, geborene Clara Aischmann wird 1890 in Nürnberg<br/>
+                geboren. Sie wächst in München auf und heiratet 1911 den<br/>
+                Verleger Dr. Heinrich Studer. Nach der Trennung beider siedelt sie<br/>
+                1917 in die Schweiz über. Im Kreis der Zürcher Dadaisten lernt sie<br/>
+                Yvan Goll kennen.<br/>
+
+                <br/>
+                <br/>
+
+                Yvan Goll wird 1891 in Saint-Dié-des-Vosges geboren. Nach<br/>
+                seinem Jurastudium in Straßburg, lebt er in der Schweiz. Yvan<br/>
+                Goll ist zunächst stark vom deutschen Expressionismus<br/>
+                beeinflusst. Nach 1919 wird er zu einem der Wortführer des<br/>
+                französischen Surrealismus. Ein Teil des Goll Nachlasses liegt<br/>
+                heute im Deutschen Literaturarchiv Marbach. Teile davon sind im<br/>
+                Literaturmuseum der Moderne in Marbach in der Dauerausstellung<br/>
+                zu sehen. <br/>
+                
+                <br/>
+                <br/>
+
+                Claire Goll und Yvan Goll lernen sich 1917 kennen. Sie heiraten<br/>
+                am 19.10.1917 und während sie die Ringe wechseln schwören sie<br/>
+                sich: &#187; Ich will immer neben Dir gehen. Ewig. Nicht im Sinne der<br/>
+                Menschen, denn das ist zu kurz &#171; Die beiden lyrischen Talente<br/>
+                wird ein Leben lang eine spannungsgeladene Beziehung<br/>
+                verbinden. Sie werden sich lieben, zwischendurch trennen, dann<br/>
+                wieder zusammenfinden - auch betrügen - und es scheint, als<br/>
+                können sie nicht miteinander aber auch nicht ohne einander.<br/>
+
+                <br/>
+                <br/>
+
+                Mit der gemeinsamen Übersiedlung nach Paris beginnt für das<br/>
+                Paar eine Zeit intensiver literarischer Produktivität, die der Liebe in<br/>
+                unzähligen Briefen und Gedichten Ausdruck zu geben sucht. In<br/>
+                diesen Gedichten durchweben die Stimmen Claire und Yvan Golls<br/>
+                einander. In einer Auswahl-Kombination dieser Gedichte<br/>
+                veranschaulicht Barbara Glauert-Hesse in &#187; Ich liege mit deinen<br/>
+                Träumen &#171; den &#187; Wechselgesang &#171; dieser Liebe. Ende 1918 hat<br/>
+                Claire eine Affäre mit Rainer Maria Rilke. Sie bleiben bis zu<br/>
+                dessen Tod freundschaftlich verbunden. Bei Freunden in Berlin<br/>
+                lernt Ivan Goll die neun Jahre jüngere Lyrikerin Paula Ludwig<br/>
+                kennen, mit der er eine leidenschaftliche Liebes- und<br/>
+                Arbeitsbeziehung hat.<br/>
+
+                <br/>
+                <br/>
+                Die gemeinsame Wohnung in Paris dient als Treffpunkt<br/>
+                künstlerischen Lebens; dort verkehren eine Vielzahl von<br/>
+                Künstler*innen, z.B. Breton, Cocteau, Chagall, Dali, Eduard,<br/>
+                Joyce, Malraux und Valéry, um nur einige Namen zu nenne. 1939<br/>
+                fliehen Claire und Yvan über Kuba ins New Yorker Exil in die USA.<br/>
+                Ré Soupault, eine deutsch-französische Künstlerin besucht die<br/>
+                beiden und beschreibt am 26. September 1943 einen Besuch in<br/>
+                ihrem Tagebuch mit diesen Worten: &#171;Gestern war herrliches<br/>
+                Wetter und ich machte einen Besuch bei Claire und Yvan Goll, die<br/>
+                mich so herzlich eingeladen hatten. Sie wohnen in einer Zwei-<br/>
+                Zimmer-Wohnung, die zwar nicht geräumig ist, aber den Vorteil<br/>
+                hat, einen weiten Blick über den Hudson, die Freiheitsstatue und<br/>
+                die Wolkenkratzer zu öffnen. (...) &#187; 1947 kehren Yvan und Claire<br/>
+                nach Paris zurück. Beide werden dort sterben— Yvan 1950 und<br/>
+                Claire 1977.<br/>
+
+                <br/>
+                <br/>
+
+                Sie tanzt nach seinem Tod in Erinnerung an ihn nachts in ihrer<br/>
+                Wohnung Tango - einen Tanz, den sie 1940 gemeinsam in Kuba<br/>
+                getanzt hatten ... Die beiden haben die Liebe gelebt. Ihre<br/>
+                Liebesgedichte sind lyrische Zwiegespräche über Leben, Liebe<br/>
+                und Tod. Diese bilden stete Quelle der Inspiration.<br/>
+
+                <br/>
+                <br/>
+
+                Quellen:
+
+                <br/>
+                <br/>
+
+                Buch, Soupault, Ré:  &#171; Nur das Geistige zählt. Vom Bauhaus in die<br/>
+                Welt—Erinnerungen &#187;, S. 173ff.<br/>
+                <br/>
+                <br/>
+                Buch, Glauert-Hesse, Barbara: Yvan und Claire Goll, &#171; Ich liege mit<br/>
+                deinen Träumen &#187; Liebesgedichte, Wallstein-Verlag <br/>
+                CD, Sandra Quadflieg + Ulrich Tukur lesen Claire und Yvan Goll,<br/>
+                &#171; Nichts fehlt - ausser Dir &#187;, Random House Audio<br/>
+
+
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+
+                Our memory game is based on the dataset &#171; Fond Claire and Yvan<br/>
+                Goll«. As part of a research collaboration, the index cards of the<br/> 
+                Fond Claire and Yvan Goll of the Musée Pierre-Noël de Saint-Dié-<br/>
+                des-Vosges were digitized and additional images from the library<br/> 
+                and other items from the museum’s holdings have been included.<br/> 
+
+                <br/>
+                <br/>
+
+                These are handwritten index cards (front and back pages, counting<br/> 
+                2288 single files) as well as book covers (231 single files)- a<br/> 
+                treasure trove of the most varying contents. The originals are<br/> 
+                owned and held by the Musée Pierre-Noël de Saint-Dié-des-Vosges.<br/> 
+
+                <br/>
+                <br/>
+
+                Claire Goll (Clara Aischmann) is born in Nuremberg in 1890. She<br/> 
+                grows up in Munich and in 1911 she married the publisher Dr.<br/>
+                Heinrich Studer. After the divorce, she moved to Switzerland in<br/>
+                1917. She gets to know Yvan Goll in the circle of Dadaism in Zurich.<br/> 
+
+                <br/>
+                <br/>   
+
+                Yvan Goll was born in Saint-Dié-des-Vosges in 1891. After studying<br/>
+                law in Strasbourg, he moved to Switzerland. Yvan Goll is first<br/> 
+                inspired by German Expressionism. After 1919 he became one of<br/>
+                the spokesmen for political surrealism. Part of the Goll estate is now<br/>
+                in the German Literature Archive in Marbach. Parts of it can be seen<br/> 
+                in the permanent exhibition of the Modern Literature Museum in<br/> 
+                Marbach.<br/>
+
+                <br/>
+                <br/>
+
+                Claire and Yvan Goll met in 1917. They get married on October 19th,<br/>
+                1917 and while they change the rings they swear to each other: &#171; I<br/> 
+                always want to go next to you. Forever. Not in the interests of human<br/> 
+                kind, because that’s too short &#187;. The two lyrical talents will have an<br/>
+                an intense relationship for a whole lifetime. They will love each other,<br/> 
+                separate in between, then find each other again - also cheat - and<br/> 
+                it seems as if they can not with each other but not without each other. <br/>
+
+                <br/>
+                <br/>
+
+                With moving to Paris together began a period of intense literary<br/> 
+                productivity for the couple, which sought to express love in<br/> 
+                innumerable letters and poems. In these poems, Claire and Yvan<br/> 
+                Goll’s voices interweave. In a combination of these poems, Barbara<br/>
+                Glauert-Hesse illustrates in &#171; Ich liege mit deinen Träumen &#187; the &#171;<br/>
+                changing song &#187; of this love. At the end of 1918 Claire had an affair<br/>
+                with Rainer Maria Rilke. They remain friends until his death. Ivan Goll<br/>
+                met the poet Paula Ludwig in Berlin, with whom he had a passionate<br/> 
+                love and work relationship.<br/>
+
+                <br/>
+                <br/>    
+
+                The shared apartment from Yvan and Claire in Paris serves as a<br/> 
+                meeting point for artistic life; a large number of artists operate there,<br/> 
+                e.g. Breton, Cocteau, Chagall, Dali, Eduard, Joyce, Malraux and<br/> 
+                Valéry, to name just a few. In 1939 Claire and Yvan flee via Cuba to<br/> 
+                exile in New York in the USA. Ré Soupault, a German-French artist<br/>
+                visits the two and describes a visit to her diary on September 26,<br/> 
+                1943 with the following words:  &#171; Yesterday was wonderful weather<br/> 
+                and I visited Claire and Yvan Goll, who had invited me so warmly.<br/> 
+                They live in a two-room appartment, which is not spacious, but has<br/> 
+                the advantage of offering a wide view of the Hudson, the Statue of<br/> 
+                Liberty and the skyscrapers. (...) &#187; In 1947, Yvan and Claire returned<br/> 
+                to Paris. Both will die there - Yvan 1950 and Claire 1977.<br/>
+                After his death, she dances Tango at night in her apartment in<br/>
+                memory of him - a dance they had danced together in Cuba in<br/>
+                1940 ... The two lived love. Their love poems are lyrical dialogues<br/>
+                about life, love and death. These are a constant source of<br/>
+                inspiration.<br/>
+
+                <br/>
+                <br/>
+                Sources:<br>
+                <br/>
+
+                Book, Soupault, Ré:  &#171; Nur das Geistige zählt. Vom Bauhaus in die<br/>
+                Welt—Erinnerungen &#187;, S. 173ff.<br/>
+                <br/>
+                <br/>
+                Book, Glauert-Hesse, Barbara: Yvan und Claire Goll, &#171; Ich liege mit<br/>
+                deinen Träumen &#187; Liebesgedichte, Wallstein-Verlag<br/>
+                CD, Sandra Quadflieg + Ulrich Tukur lesen Claire und Yvan Goll,<br/>
+                &#171; Nichts fehlt - ausser Dir &#187;, Random House Audio<br/>
+
+
+
+
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+
+
+            </span>
+            </p>
+        </div>
+    
+        <div class="bottom">
+            <ul>
+                <li><div class="button zapbutton is-action" onclick="onMainClicked();">Back</div></li>
+            </ul>
+        </div>
    
-    <div class="bottom">
-        <div class="left">
-            <a href="story.html" class="button">Story</a>
-        </div> 
-        <div class="right">
-            <a id="start" href="board.html" class="button">Start</a>
+    </div>
+
+    <div id="game" class="hidden">
+
+        <h1 class="page-title">Goll Pairs</h1>
+
+        <div id="wrapper" class="black">
+    
+            <div class="congratulations hidden" id="you-won"></div> <!-- container for lovely sentences -->
+    
+            <div id="gallery" style="visibility: hidden;" >
+                <div id="lightgallery"></div> <!-- container for index cards -->
+            </div>
+    
+            <div class="colorbar"> <!-- game settings bar -->
+                <ul class="color-select">
+                    <li class="black circle" onclick="changeColor(0);">&nbsp;</li>
+                    <li class="white circle" onclick="changeColor(1);">&nbsp;</li>
+                    <li class="yellow circle" onclick="changeColor(2);">&nbsp;</li>
+                    <li class="orange circle" onclick="changeColor(3);">&nbsp;</li>
+                    <li class="pink circle" onclick="changeColor(4);">&nbsp;</li>
+                    <li class="red circle" onclick="changeColor(5);">&nbsp;</li>
+                    <li class="purple circle" onclick="changeColor(6);">&nbsp;</li>
+                    <li class="blue circle" onclick="changeColor(7);">&nbsp;</li>
+                    <li class="green circle" onclick="changeColor(8);">&nbsp;</li>
+                    <li class="brown circle" onclick="changeColor(9);">&nbsp;</li>
+                    <li class="circle music-off circle-lightgrey" id="music2" onclick="toggleMusic();"></li>
+                    <li class="circle sound-off circle-lightgrey" id="sound2" onclick="toggleSound();"></li>
+                    <li class="circle back circle-lightgrey is-action" onclick="onMainClicked();"></li>
+                </ul>
+            </div>
+    
+            <!-- game container -->
+            <div class="goll-container unselectable" id="board">
+    
+                <!-- status bar and walk-away/cheat buttons -->
+                <div class="goll-info-container" id="status">
+                    <div class="goll-info">
+                        Time: <span id="time-remaining">00:00:00</span>
+                        <div class="goll-action-right">
+                            <span id="skip-action" class="action-button"><div class="sneakers-icon"></div></span>
+                        </div>
+                    </div>
+                    <div class="goll-info">
+                        Best: <span id="highscore">0</span>
+                    </div>
+                    <div class="goll-info">
+                        Score: <span id="score">0</span>
+                        <div class="goll-action-center">
+                            <span id="cheat-action" class="action-button"><div class="cheat-icon"></div></span>
+                        </div>
+                    </div>
+                    <div class="goll-info">
+                        Moves: <span id="moves">0</span>
+                    </div>
+                </div>
+            </div>
         </div>
+     
     </div>
     
+        
+    <!-- load audio assets -->
+    <audio id="flip-card">
+        <source src="assets/card-flip.wav" type="audio/wav">
+    </audio>
+    <audio id="match-card">
+        <source src="assets/card-match.wav" type="audio/wav">
+    </audio>
+    <audio id="nomatch-card">
+        <source src="assets/card-nomatch.wav" type="audio/wav">
+    </audio>
+    <audio id="win-game">
+        <source src="assets/win-game.mp3" type="audio/mp3">
+    </audio>
+    <audio id="shuffle">
+        <source src="assets/shuffle.wav" type="audio/wav">
+    </audio>
+    <audio id="intro-music" loop>
+        <source src="assets/intro.mp3" type="audio/mp3">
+    </audio>
+    <audio id="skip-button">
+        <source src="assets/skip-button.wav" type="audio/wav">
+    </audio>
+    
+
     <script>
         initDefaults();
         loadColor();
+        onMainClicked();
+
+        document.getElementById("story").addEventListener("click", function() {
+            document.getElementById("scroller").classList.toggle("paused");
+            document.getElementById("story-paused").classList.toggle("hidden");
+            
+        });
+        
+        document.getElementById("about-story").addEventListener("click", function() {
+            document.getElementById("about-scroller").classList.toggle("paused");
+            document.getElementById("about-paused").classList.toggle("hidden");
+        });
+
+        function hide(containers) {
+            for( let i = 0; i < containers.length; i ++ ) {
+                document.getElementById(containers[i]).classList.add("hidden");
+                document.getElementById(containers[i]).classList.remove("visible");
+                console.log("Hide " + containers[i]);
+            }
+        }
+
+        function show(containerName) {
+            document.getElementById(containerName).classList.remove("hidden");
+            document.getElementById(containerName).classList.add("visible");
+            console.log("Show " + containerName);
+        }
+
+        function onAboutClicked() {
+            hide( ["main", "gollstory", "game"]);
+            show("about");
+        }
+
+        function onStoryClicked() {
+            hide( ["main", "about", "game"]);
+            show("gollstory");
+        }
+
+        function onGameClicked() {
+            hide( ["main", "about", "gollstory"]);
+            ready();
+            show("game");
+        }
+
+        function onMainClicked() {
+            hide( ["game", "about", "gollstory"]);
+            show("main");
+        }
+
     </script>
+    <!-- load lightgallery plugins -->
+    <script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
+    <script src="https://cdn.rawgit.com/sachinchoolur/lg-pager.js/master/dist/lg-pager.js"></script>
+    <script src="https://cdn.rawgit.com/sachinchoolur/lg-zoom.js/master/dist/lg-zoom.js"></script>
 </body>
 </html>
