@@ -629,7 +629,7 @@ video {
     top: 100%;
     left: 50%;
     margin-left: -60px;
-    margin-top: 16px;
+    margin-top: 8px;
   }
     
   .tooltip:hover .tooltiptext {
