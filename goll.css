@@ -759,7 +759,7 @@ video {
 }
 */
 
-@media only screen and (orientation: landscape)
+@media only screen and (orientation: landscape) and (max-width: 1400px)
 {
     .goll-container {
         display: none;
@@ -828,6 +828,48 @@ video {
     .bottom {
         bottom:1%;
     }
+}
+
+
+@media only screen and (orientation: landscape) and (min-width: 1400px)
+{
+    .goll-container {
+        display: none;
+        grid-gap: 5px;
+        perspective: 1500px;
+        -webkit-perspective: 1500px;
+        justify-content: center;
+        margin: 0px;
+        grid-auto-rows:16vh;
+        grid-auto-columns:16vh;
+    }
+    .card {
+        position:relative;
+        width: 16vh;
+        height: 16vh;
+    }
+    .goll-container4 {
+        grid-template-columns: repeat(4, auto);
+    }
+    .goll-container8 {
+        grid-template-columns: repeat(8, auto);
+    }
+            
+    .page-title {
+        font-family:Zapfino, serif;
+        font-weight: normal;
+        text-align: center;
+        font-size:5vw;
+        margin-bottom:0px;
+        margin-top:0px;
+    } 
+   
+    .marquee span, .marquee-about span {
+        line-height: 3vw;
+        font-size: calc(10px + 0.75vw);
+    }
+
+    
 }
 
 @media only screen and (orientation: portrait)
