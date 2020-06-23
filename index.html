@@ -91,8 +91,7 @@
     <div id="about" class="hidden">
         <div class="about-container">
             <h1 class="page-title">About Goll Pairs</h1>
-            <p class="hint">(Click to Pause)</p>
-            <p id="about-paused" class="hint hidden">(Click to resume)</p>
+            <p id="about-pause" class="hint">(Click to Pause/Resume)</p>
             <p class="marquee-about" id="about-story">
                <span id="about-scroller">
                
@@ -202,10 +201,10 @@
 
     <div id="gollstory" class="hidden">
         <h1 class="page-title">The Story of Claire and Yvan Goll</h1>
-
+        <p id="story-pause" class="hint">(Click to Pause/Resume)</p>
+        
         <div class="story-container">
-            <p class="hint">(Click to Pause)</p>
-            <p id="story-paused" class="hint hidden">(Click to resume)</p>
+
             <p class="marquee" id="story">
                 <span class="text" id="scroller">
 
@@ -551,16 +550,13 @@
         initDefaults();
         loadColor();
         onMainClicked();
-
+      
         document.getElementById("story").addEventListener("click", function() {
             document.getElementById("scroller").classList.toggle("paused");
-            document.getElementById("story-paused").classList.toggle("hidden");
-            
         });
         
         document.getElementById("about-story").addEventListener("click", function() {
             document.getElementById("about-scroller").classList.toggle("paused");
-            document.getElementById("about-paused").classList.toggle("hidden");
         });
 
         function hide(containers) {

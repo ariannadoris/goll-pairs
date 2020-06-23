@@ -228,11 +228,15 @@ ul li:hover {
 
 .goll-info {
     font-family: Lato-Regular, serif;
-    font-size:1.0vw;
+/*    font-size:1.0vw; */
 }
 
 .hidden {
     display:none;
+}
+
+.hidetext {
+    visibility: hidden;
 }
 
 .visble {
@@ -602,7 +606,7 @@ video {
 }
 
 .hint {
-    animation: fade-out 3s 1;
+    animation: fade-out 10s 1;
     animation-fill-mode: forwards;
     animation-delay: 1s;
     font-size:calc(8px + 0.5vw);
@@ -755,7 +759,7 @@ video {
 }
 */
 
-@media only screen and (orientation: landscape) and (max-width: 2000px )
+@media only screen and (orientation: landscape)
 {
     .goll-container {
         display: none;
@@ -789,10 +793,41 @@ video {
     } 
    
     .marquee span, .marquee-about span {
-        line-height: 5vh;
-        font-size:calc(10px + 1.25vh);
+        line-height: 3vw;
+        font-size: calc(10px + 1.25vw);
     }
 
+    .sneakers-icon, .cheat-icon {
+        width: 4.32vw;
+        height: 2vh;
+        background-size:contain;
+    }
+
+    .cheat-icon:hover {
+        pointer-events:none;
+    }
+
+    .goll-action-right, .goll-action-left, .goll-action-center {
+        margin-top:0px;
+    }
+
+    .sound-button {
+        min-width:0px;
+        min-height:0px;
+    }
+
+    #introvideo {
+        width:50vw;
+        height:50vh;
+    }
+
+    .tooltip:hover .tooltiptext {
+        display:none;
+    }
+    
+    .bottom {
+        bottom:1%;
+    }
 }
 
 @media only screen and (orientation: portrait)
@@ -860,7 +895,6 @@ video {
 
     .action-button {
         margin-top: 1vh;
-        min-height: 3vh;
     }
         
     .page-title {
@@ -873,8 +907,53 @@ video {
     }
 
     .marquee span, .marquee-about span {
-        line-height: 2.0vh;
-        font-size:calc(10px + 0.75vh);
+        line-height: 3vw;
+        font-size: calc(10px + 1.25vw);
+        margin-left: 2.5vw;
+    }
+
+    .action-button {
+        padding:0px 0px 0px 0px;
+        width:12vw;
+    }
+
+   
+    .sneakers-icon, .cheat-icon {
+        width: 4.32vw;
+        height: 3vh;
+        background-size:contain;
+    }
+
+    .cheat-icon:hover {
+        pointer-events:none;
+    }
+
+    .goll-action-right, .goll-action-left, .goll-action-center {
+        margin-top:0px;
+    }
+
+    .sound-button {
+        min-width:6vh;
+        min-height:6vh;
+    }
+
+    #introvideo {
+        width:100vw;
+    }
+
+    .tooltip:hover .tooltiptext {
+        display:none;
+    }
+
+    .bottom {
+        bottom:1%;
+    }
+
+    .button {
+        padding-left: 2vw;
+        padding-right: 4vw;
+        padding-top: 1vh;
+        padding-bottom: 1vh;
     }
 }
 
