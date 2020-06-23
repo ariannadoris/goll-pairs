@@ -590,6 +590,10 @@
         function onMainClicked() {
             hide( ["game", "about", "gollstory"]);
             show("main");
+
+            let vid = document.getElementById("introvideo");
+            vid.currentTime = 0;
+            vid.play();
         }
 
     </script>
