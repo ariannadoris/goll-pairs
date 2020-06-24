@@ -228,11 +228,15 @@ ul li:hover {
 
 .goll-info {
     font-family: Lato-Regular, serif;
-    font-size:1.0vw;
+/*    font-size:1.0vw; */
 }
 
 .hidden {
     display:none;
+}
+
+.hidetext {
+    visibility: hidden;
 }
 
 .visble {
@@ -342,7 +346,7 @@ ul li:hover {
  }
 
  .card-back:active {
-     cursor: grabbing;
+     cursor: url(assets/grabbing.png) 2 2, pointer;
  }
  
 
@@ -602,11 +606,58 @@ video {
 }
 
 .hint {
-    animation: fade-out 3s 1;
+    animation: fade-out 10s 1;
     animation-fill-mode: forwards;
     animation-delay: 1s;
     font-size:calc(8px + 0.5vw);
     text-align:center;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  
+.tooltip .tooltiptext {
+    font-family: Lato-Regular,Arial;
+    font-size: calc(12px + 0.1vw);
+    visibility: hidden;
+    width: 120px;
+    border:1px solid #404040;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    margin-left: -60px;
+    margin-top: 8px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+#metadata-container {
+    position: absolute;
+    margin: 0 auto;
+    text-align: left;
+    width: 64vh;
+    right: 0px;
+    height: 64vh;
+    padding-right: 2vw;   
+}
+
+.metadata {
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-bottom:1em;
+    font-family: 'Lato-Regular', 'Arial';
+    font-size: calc(12px + 0.2vw);
 }
 
 @keyframes fade-out {
@@ -728,7 +779,7 @@ video {
 }
 */
 
-@media only screen and (orientation: landscape) and (max-width: 2000px )
+@media only screen and (orientation: landscape) and (max-width: 1400px)
 {
     .goll-container {
         display: none;
@@ -762,10 +813,96 @@ video {
     } 
    
     .marquee span, .marquee-about span {
-        line-height: 5vh;
-        font-size:calc(10px + 1.25vh);
+        line-height: 3vw;
+        font-size: calc(10px + 1.25vw);
     }
 
+    .sneakers-icon, .cheat-icon {
+        width: 4.32vw;
+        height: 2vh;
+        background-size:contain;
+    }
+
+    .cheat-icon:hover {
+        pointer-events:none;
+    }
+
+    .goll-action-right, .goll-action-left, .goll-action-center {
+        margin-top:0px;
+    }
+
+    .sound-button {
+        min-width:0px;
+        min-height:0px;
+    }
+
+    #introvideo {
+        width:50vw;
+        height:50vh;
+    }
+
+    .tooltip:hover .tooltiptext {
+        display:none;
+    }
+    
+    .bottom {
+        bottom:1%;
+    }
+
+    #metadata-container {
+        display:none;
+    }
+}
+
+
+@media only screen and (orientation: landscape) and (min-width: 1400px)
+{
+    .goll-container {
+        display: none;
+        grid-gap: 5px;
+        perspective: 1500px;
+        -webkit-perspective: 1500px;
+        justify-content: center;
+        margin: 0px;
+        grid-auto-rows:16vh;
+        grid-auto-columns:16vh;
+    }
+    .card {
+        position:relative;
+        width: 16vh;
+        height: 16vh;
+    }
+    .goll-container4 {
+        grid-template-columns: repeat(4, auto);
+    }
+    .goll-container8 {
+        grid-template-columns: repeat(8, auto);
+    }
+            
+    .page-title {
+        font-family:Zapfino, serif;
+        font-weight: normal;
+        text-align: center;
+        font-size:5vw;
+        margin-bottom:0px;
+        margin-top:0px;
+    } 
+   
+    .marquee span, .marquee-about span {
+        line-height: 3vw;
+        font-size: calc(10px + 0.75vw);
+    }
+
+    #metadata-container {
+        position: absolute;
+        margin: 0 auto;
+        text-align: left;
+        width: 28vw;
+        right: 0px;
+        height: 64vh;
+        padding-right: 2vw;
+    }
+    
 }
 
 @media only screen and (orientation: portrait)
@@ -833,7 +970,6 @@ video {
 
     .action-button {
         margin-top: 1vh;
-        min-height: 3vh;
     }
         
     .page-title {
@@ -846,8 +982,57 @@ video {
     }
 
     .marquee span, .marquee-about span {
-        line-height: 2.0vh;
-        font-size:calc(10px + 0.75vh);
+        line-height: 3vw;
+        font-size: calc(10px + 1.25vw);
+        margin-left: 2.5vw;
+    }
+
+    .action-button {
+        padding:0px 0px 0px 0px;
+        width:12vw;
+    }
+
+   
+    .sneakers-icon, .cheat-icon {
+        width: 4.32vw;
+        height: 3vh;
+        background-size:contain;
+    }
+
+    .cheat-icon:hover {
+        pointer-events:none;
+    }
+
+    .goll-action-right, .goll-action-left, .goll-action-center {
+        margin-top:0px;
+    }
+
+    .sound-button {
+        min-width:6vh;
+        min-height:6vh;
+    }
+
+    #introvideo {
+        width:100vw;
+    }
+
+    .tooltip:hover .tooltiptext {
+        display:none;
+    }
+
+    .bottom {
+        bottom:1%;
+    }
+
+    .button {
+        padding-left: 2vw;
+        padding-right: 4vw;
+        padding-top: 1vh;
+        padding-bottom: 1vh;
+    }
+
+    #metadata-container {
+        display:none;
     }
 }
 

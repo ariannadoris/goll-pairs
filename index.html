@@ -10,6 +10,9 @@
    <script src="colors.js"></script>
 
    <!-- index cards -->
+   <script src="metadata/arts.js"></script>
+   <script src="metadata/photography.js"></script>
+   <script src="metadata/texts.js"></script>
    <script src="archive.js"></script>
 
    <!-- game logics -->
@@ -67,10 +70,14 @@
 
         <div class="audiobar">
             <div class="left">
-                <span id="music1" class="button music-off sound-button" onclick="toggleMusic();"></span>
+                <span id="music1" class="button music-off sound-button tooltip" onclick="toggleMusic();">
+                    <span class="tooltiptext">Toggle Music</span>
+                </span>
             </div>
             <div class="right">
-                <span id="sound1" class="button sound-off sound-button" onclick="toggleSound();"></span>
+                <span id="sound1" class="button sound-off sound-button tooltip" onclick="toggleSound();">
+                    <span class="tooltiptext">Toggle Sound</span>
+                </span>
             </div>
         </div>
     
@@ -87,8 +94,7 @@
     <div id="about" class="hidden">
         <div class="about-container">
             <h1 class="page-title">About Goll Pairs</h1>
-            <p class="hint">(Click to Pause)</p>
-            <p id="about-paused" class="hint hidden">(Click to resume)</p>
+            <p id="about-pause" class="hint">(Click to Pause/Resume)</p>
             <p class="marquee-about" id="about-story">
                <span id="about-scroller">
                
@@ -198,10 +204,10 @@
 
     <div id="gollstory" class="hidden">
         <h1 class="page-title">The Story of Claire and Yvan Goll</h1>
-
+        <p id="story-pause" class="hint">(Click to Pause/Resume)</p>
+        
         <div class="story-container">
-            <p class="hint">(Click to Pause)</p>
-            <p id="story-paused" class="hint hidden">(Click to resume)</p>
+
             <p class="marquee" id="story">
                 <span class="text" id="scroller">
 
@@ -458,6 +464,10 @@
         <h1 class="page-title">Goll Pairs</h1>
 
         <div id="wrapper" class="black">
+
+            <div id="metadata-container">
+                        
+            </div>
     
             <div class="congratulations hidden" id="you-won"></div> <!-- container for lovely sentences -->
     
@@ -491,7 +501,10 @@
                     <div class="goll-info">
                         Time: <span id="time-remaining">00:00:00</span>
                         <div class="goll-action-right">
-                            <span id="skip-action" class="action-button"><div class="sneakers-icon"></div></span>
+                            <span id="skip-action" class="action-button tooltip">
+                                <div class="sneakers-icon"></div>
+                                <span class="tooltiptext">Walk away from this game</span>
+                            </span>
                         </div>
                     </div>
                     <div class="goll-info">
@@ -500,12 +513,16 @@
                     <div class="goll-info">
                         Score: <span id="score">0</span>
                         <div class="goll-action-center">
-                            <span id="cheat-action" class="action-button"><div class="cheat-icon"></div></span>
+                            <span id="cheat-action" class="action-button tooltip">
+                                <div class="cheat-icon"></div>
+                                <span class="tooltiptext">Cheat and get a glimpse at a card</span>
+                            </span>
                         </div>
                     </div>
                     <div class="goll-info">
                         Moves: <span id="moves">0</span>
                     </div>
+                
                 </div>
             </div>
         </div>
@@ -541,30 +558,25 @@
         initDefaults();
         loadColor();
         onMainClicked();
-
+      
         document.getElementById("story").addEventListener("click", function() {
             document.getElementById("scroller").classList.toggle("paused");
-            document.getElementById("story-paused").classList.toggle("hidden");
-            
         });
         
         document.getElementById("about-story").addEventListener("click", function() {
             document.getElementById("about-scroller").classList.toggle("paused");
-            document.getElementById("about-paused").classList.toggle("hidden");
         });
 
         function hide(containers) {
             for( let i = 0; i < containers.length; i ++ ) {
                 document.getElementById(containers[i]).classList.add("hidden");
                 document.getElementById(containers[i]).classList.remove("visible");
-                console.log("Hide " + containers[i]);
             }
         }
 
         function show(containerName) {
             document.getElementById(containerName).classList.remove("hidden");
             document.getElementById(containerName).classList.add("visible");
-            console.log("Show " + containerName);
         }
 
         function onAboutClicked() {
@@ -586,6 +598,10 @@
         function onMainClicked() {
             hide( ["game", "about", "gollstory"]);
             show("main");
+
+            let vid = document.getElementById("introvideo");
+            vid.currentTime = 0;
+            vid.play();
         }
 
     </script>

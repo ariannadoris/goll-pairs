@@ -23,7 +23,7 @@ let gollCongratulationMessages = [
     "I’m so excited that we have so much time to be with each other.",
     "You've got what I need.",
     "I’m happy just to see you happy.",
-    "You are my favorite.",
+    "You are my favourite.",
     "Every time I see you, you leave me breathless.",
     "You are my sunshine.",
     "For you, I will risk it all.",
