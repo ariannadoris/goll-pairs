@@ -168,6 +168,7 @@ function findMetadata(key)
 }
 
 function clearMetadata() {
+    console.log("Clear metadata");
     let elem = document.getElementById("metadata-container");
     while(elem.hasChildNodes()) {
         elem.removeChild(elem.firstChild);

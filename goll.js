@@ -370,10 +370,12 @@ function layout()
     if( numberOfPairs < 9 ) {
         document.getElementById('board').classList.add('goll-container4');
         document.getElementById('board').classList.remove('goll-container8');
+        document.getElementById('metadata-container').classList.remove('large-screen');
         document.getElementById('board').classList.remove('visible');
     }
     else {
         document.getElementById('board').classList.add('goll-container8');
+        document.getElementById('metadata-container').classList.add('large-screen');
         document.getElementById('board').classList.remove('goll-container4');
         document.getElementById('board').classList.remove('visible');
     }
@@ -435,6 +437,7 @@ function ready() {
             p.classList.remove('poem');
             if(numberOfPairs < 16)
                 numberOfPairs = numberOfPairs * 2;
+                
             layout();
             
             cards = Array.from(document.getElementsByClassName('card'));
