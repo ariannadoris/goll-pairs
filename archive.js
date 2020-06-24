@@ -65,6 +65,7 @@ function createLink(id, array) {
 
         item += "<a " + (i == 0 ? "id=\"first-index-card\"" : "" )  +  " href=\"" + name + "\"><img src=\""+ name + "\"></a>\n";
     }
+
     return item;
 }
 
@@ -79,4 +80,113 @@ function displayIndexCards(key) {
     createGallery(ic.source(), ic.elements());
     document.getElementById("first-index-card").click();
     return true;
+}
+
+function createPlainTextNode(text,parent)
+{
+    let elem = document.createElement("p");
+    elem.setAttribute("class", "metadata");
+    elem.innerText = text;
+    parent.append(elem);
+}
+
+function createPlainText(metadataObject, parent)
+{
+    let text = "";
+   
+    if(metadataObject.DESCRIPTION !== undefined && metadataObject.AUTHOR !== undefined && metadataObject.MATERIALS !== undefined && metadataObject.DIMENSIONS !== undefined) {
+        text = metadataObject.DESCRIPTION;
+        text += " (";
+        text += metadataObject.AUTHOR;
+        text += " )";
+
+        createPlainTextNode(text,parent);        
+
+        text = metadataObject.MATERIALS;
+
+        createPlainTextNode(text,parent);
+
+        text = metadataObject.DIMENSIONS;
+
+        createPlainTextNode(text,parent);
+    }
+    else if(metadataObject.DESCRIPTION !== undefined && metadataObject.AUTHOR !== undefined && metadataObject.MATERIALS !== undefined) {
+        text = metadataObject.DESCRIPTION;
+        text += " (";
+        text += metadataObject.AUTHOR;
+        text += " )";
+
+        createPlainTextNode(text,parent);        
+
+        text = metadataObject.MATERIALS;
+
+        createPlainTextNode(text,parent);
+    }
+    else if(metadataObject.DESCRIPTION !== undefined && metadataObject.AUTHOR !== undefined) {
+        text = metadataObject.DESCRIPTION;
+        text += " (";
+        text += metadataObject.AUTHOR;
+        text += " )";
+
+        createPlainTextNode(text,parent);
+    }
+    else if( metadataObject.DESCRIPTION !== undefined ) {
+        text = metadataObject.DESCRIPTION;
+
+        createPlainTextNode(text,parent);
+    }
+    else if ( metadataObject.AUTHOR !== undefined ) {
+        text = metadataObject.AUTHOR;
+
+        createPlainTextNode(text,parent);
+    }
+}
+
+function findMetadata(key)
+{
+    for( let x = 0; x < metadataArt.length; x++ ) {
+        if( metadataArt[x].INVENTORY.includes(key) ) {
+            return metadataArt[x];
+        }
+        
+    }
+
+    for( let x = 0; x < metadataPhotography.length; x++ ) {
+        if( metadataPhotography[x].INVENTORY.includes(key)) {
+            return metadataPhotography[x];
+        }
+        
+    }
+
+    for( let x = 0; x < metadataTexts.length; x++ ) {
+        if( metadataTexts[x].INVENTORY.includes(key)) {
+            return metadataTexts[x];
+        }
+    }
+
+    return null;
+}
+
+function clearMetadata() {
+    let elem = document.getElementById("metadata-container");
+    while(elem.hasChildNodes()) {
+        elem.removeChild(elem.firstChild);
+    }
+}
+
+function createMetadataElement(key)
+{
+    let ic = indexCards.get(key);
+    clearMetadata();
+    let metadata = findMetadata(ic.source());
+    let parent = document.getElementById("metadata-container");
+    if(metadata != null) {
+        createPlainText(metadata,parent);
+        console.log(metadata);
+    }
+    else {
+        console.log("There is no metadata about object " + key);
+    }
+
+    createPlainTextNode("Double-click the card to see the original",parent);
 }

@@ -133,6 +133,7 @@ class Logics {
     }
 
     start() {
+
         this.matchedCards = [];
         this.currentCard = null;
         this.totalMoves = 0;
@@ -257,8 +258,9 @@ class Logics {
             document.getElementById('status').classList.add('hidden');
         }
         else {
-            this.setScore(100);            
+            this.setScore(100);
         }
+        this.displayMetadata(card1, 1000);
     }
 
     unmatchCards(card1, card2) {
@@ -269,7 +271,8 @@ class Logics {
             card2.classList.remove('visible');
             this.busy = false;
         }, 1000);
-        console.log("The cards do not match");   
+        console.log("The cards do not match");
+        clearMetadata();
     }
 
     getCard(card) {
@@ -318,6 +321,23 @@ class Logics {
     isTurnable(card) {
         return (!this.busy && !this.matchedCards.includes(card) && card !== this.currentCard)
     }
+
+    displayMetadata(card, timeout) {
+        clearMetadata();
+        if(timeout > 0) {
+            setTimeout(() => {
+                if(this.matchedCards.includes(card)) {
+                    if(this.matchedCards.includes(card)) {
+                        createMetadataElement(card.getElementsByTagName("img")[0].getAttribute("src"));
+                    }
+                }
+            }, timeout);
+        }
+        else {
+            createMetadataElement(card.getElementsByTagName("img")[0].getAttribute("src"));
+        }
+
+    }
 }
 
 function setupActions()
@@ -343,6 +363,8 @@ function setupActions()
 
 function layout()
 {
+    clearMetadata();
+
     console.log("Layout "+ numberOfPairs + " pairs");
 
     if( numberOfPairs < 9 ) {
@@ -363,10 +385,16 @@ function layout()
     let newCards = Array.from(document.getElementsByClassName('card'));
     newCards.forEach( c=> {
         c.addEventListener('click', () => {
+            clearMetadata();
+
             if( !c.classList.contains("inactive")) {
                 console.log("Clicked card "+ c.getElementsByTagName("img")[0].getAttribute("src"));
                 logics.turnCard(c);
             }
+            if( c.classList.contains("matched")) {
+                logics.displayMetadata(c,200);
+            }
+            
         });
         
         c.addEventListener('dblclick',  () => {

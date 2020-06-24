@@ -619,7 +619,7 @@ video {
     border-bottom: 1px dotted black;
   }
   
-  .tooltip .tooltiptext {
+.tooltip .tooltiptext {
     font-family: Lato-Regular,Arial;
     font-size: calc(12px + 0.1vw);
     visibility: hidden;
@@ -634,11 +634,31 @@ video {
     left: 50%;
     margin-left: -60px;
     margin-top: 8px;
-  }
-    
-  .tooltip:hover .tooltiptext {
+}
+
+.tooltip:hover .tooltiptext {
     visibility: visible;
-  }
+}
+
+#metadata-container {
+    position: absolute;
+    margin: 0 auto;
+    text-align: left;
+    width: 64vh;
+    right: 0px;
+    height: 64vh;
+    padding-right: 2vw;   
+}
+
+.metadata {
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-bottom:1em;
+    font-family: 'Lato-Regular', 'Arial';
+    font-size: calc(12px + 0.2vw);
+}
 
 @keyframes fade-out {
     0% {
@@ -828,6 +848,10 @@ video {
     .bottom {
         bottom:1%;
     }
+
+    #metadata-container {
+        display:none;
+    }
 }
 
 
@@ -869,6 +893,15 @@ video {
         font-size: calc(10px + 0.75vw);
     }
 
+    #metadata-container {
+        position: absolute;
+        margin: 0 auto;
+        text-align: left;
+        width: 28vw;
+        right: 0px;
+        height: 64vh;
+        padding-right: 2vw;
+    }
     
 }
 
@@ -996,6 +1029,10 @@ video {
         padding-right: 4vw;
         padding-top: 1vh;
         padding-bottom: 1vh;
+    }
+
+    #metadata-container {
+        display:none;
     }
 }
 
