@@ -55,6 +55,23 @@ indexCards.set( 'assets/card30.png', new IndexCard( "4967", ["-5", "-1","-2","-3
 indexCards.set( 'assets/card31.png', new IndexCard( "4055", ["-1", "-2"]) );
 indexCards.set( 'assets/card32.png', new IndexCard( "4057", ["-1", "-2"]) );
 
+/*
+
+// Metadata filter by dataset above
+
+printIndexCards();
+
+
+function printIndexCard(value,key,map) {
+    let id = `${value.name}`;
+    console.log(JSON.stringify(findMetadata(id),null, 4));
+}
+
+function printIndexCards() {
+    indexCards.forEach(printIndexCard);
+}
+*/
+
 function createLink(id, array) {
     var item = "";
     for(  var i = 0; i < array.length; i ++ ) {
@@ -86,6 +103,7 @@ function createPlainTextNode(text,parent)
 {
     let elem = document.createElement("p");
     elem.setAttribute("class", "metadata");
+    elem.setAttribute("translate", "yes");
     elem.innerText = text;
     parent.append(elem);
 }
@@ -144,7 +162,10 @@ function createPlainText(metadataObject, parent)
 
 function findMetadata(key)
 {
-    for( let x = 0; x < metadataArt.length; x++ ) {
+    /*
+     If you decide to load the arts.js ,photography.js and texts.js metadata files, uncomment the following loops:
+     */
+    /* for( let x = 0; x < metadataArt.length; x++ ) {
         if( metadataArt[x].INVENTORY.includes(key) ) {
             return metadataArt[x];
         }
@@ -162,12 +183,19 @@ function findMetadata(key)
         if( metadataTexts[x].INVENTORY.includes(key)) {
             return metadataTexts[x];
         }
+    } */
+
+    for( let x = 0; x < metadataInformation.length; x ++ ) {
+        if( metadataInformation[x].INVENTORY.includes(key)) {
+            return metadataInformation[x];
+        }
     }
 
     return null;
 }
 
 function clearMetadata() {
+    console.log("Clear metadata");
     let elem = document.getElementById("metadata-container");
     while(elem.hasChildNodes()) {
         elem.removeChild(elem.firstChild);
