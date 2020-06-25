@@ -165,47 +165,47 @@ ul li:hover {
 }
 
 .music-off {
-    background: url("assets/music-off.png") no-repeat center;
+    background: url("../assets/music-off.png") no-repeat center;
     background-size: contain;
 }
 
 .music-off:hover {
-    background: url("assets/music-on.png") no-repeat center;
+    background: url("../assets/music-on.png") no-repeat center;
     background-size: contain;
 }
 
 .sound-off {
-    background: url("assets/sound-off.png") no-repeat center;
+    background: url("../assets/sound-off.png") no-repeat center;
     background-size: contain;
 }
 
 .sound-off:hover {
-    background: url("assets/sound-on.png") no-repeat center;
+    background: url("../assets/sound-on.png") no-repeat center;
     background-size: contain;
 }
 
 .music-on {
-    background: url("assets/music-on.png") no-repeat center;
+    background: url("../assets/music-on.png") no-repeat center;
     background-size: contain;
 }
 
 .music-on:hover {
-    background: url("assets/music-off.png") no-repeat center;
+    background: url("../assets/music-off.png") no-repeat center;
     background-size: contain;
 }
 
 .sound-on {
-    background: url("assets/sound-on.png") no-repeat center;
+    background: url("../assets/sound-on.png") no-repeat center;
     background-size: contain;
 }
 
 .sound-on:hover {
-    background: url("assets/sound-off.png") no-repeat center;
+    background: url("../assets/sound-off.png") no-repeat center;
     background-size: contain;
 }
 
 .back {
-    background: url("assets/back-button.png") no-repeat center;
+    background: url("../assets/back-button.png") no-repeat center;
     background-size: contain;
 }
 
@@ -325,17 +325,17 @@ ul li:hover {
 }
 
 .goll-back-logo {
-    background: url("assets/logo6.png") no-repeat center;
+    background: url("../assets/logo6.png") no-repeat center;
     background-size: contain;
 }
 
 .goll-back-logo-alt {
-    background: linear-gradient( rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.15) ), url("assets/logo6.png") no-repeat center;
+    background: linear-gradient( rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.15) ), url("../assets/logo6.png") no-repeat center;
     background-size: 24px;
 }
 
 .card-back {
-    cursor: url(assets/hand.png) 2 2, pointer;
+    cursor: url("../assets/hand.png") 2 2, pointer;
 }
 
 .card-back:hover .goll-back {
@@ -346,7 +346,7 @@ ul li:hover {
  }
 
  .card-back:active {
-     cursor: url(assets/grabbing.png) 2 2, pointer;
+     cursor: url("../assets/grabbing.png") 2 2, pointer;
  }
  
 
@@ -357,7 +357,7 @@ ul li:hover {
 }
 
 .pair { /* chance the cursor to indicate the user can double click the item */
-    cursor:url(assets/doubleclick.png) 2 2, pointer;
+    cursor:url("../assets/doubleclick.png") 2 2, pointer;
 }
 
 .congratulations {
@@ -383,6 +383,12 @@ ul li:hover {
     animation: congratulations-poem 1000ms forwards;
 }
 
+.congratulations-help {
+    position:absolute;
+    bottom:30%;
+    font-size:2vh;
+    font-family: 'Lato-Regular', 'Arial';
+}
 
 .button {
 	border-radius:14px;
@@ -399,6 +405,10 @@ ul li:hover {
 
 .button.hidden {
     display:none;
+}
+
+.button:hover {
+    font-weight:bold;
 }
 
 
@@ -466,8 +476,14 @@ video {
 }
 
 .colorbar:hover {
+    visibility:visible;
     opacity:1;
     transition:opacity 1s linear;
+}
+
+.colorbar-fade-in-out {
+    -webkit-animation: fadeinout 1s linear forwards;
+    animation: fadeinout 2.75s linear forwards;
 }
 
 .color-select { 
@@ -493,6 +509,28 @@ video {
     width:4vh;
     height:4vh;
     font-size:medium;
+}
+
+.level {
+    font-size: calc(12px + 1.5vw);
+    position:absolute;
+    bottom:0%;
+    right:0%;
+    padding-right:2vw;
+    padding-bottom:2vw;
+}
+
+.quit {
+    position:absolute;
+    bottom:0%;
+    left:0%;
+    padding-left:2vw;
+    padding-bottom:1.5vw;
+}
+
+.quit-button {
+    width:5vh;
+    height:5vh;
 }
 
 .circle-lightgrey, .circle-lightgrey:hover {
@@ -544,21 +582,21 @@ video {
     width: 104px;
     height: 48px;
     margin:0 auto;
-    background:url(assets/sneakers.svg) no-repeat center;
+    background:url("../assets/sneakers.svg") no-repeat center;
 }
 
 .cheat-icon {
     width: 104px;
     height: 48px;
     margin:0 auto;
-    background:url(assets/eyes-up.png) no-repeat center;
+    background:url("../assets/eyes-up.png") no-repeat center;
 }
 
 .cheat-icon:hover {
     width: 104px;
     height: 48px;
     margin:0 auto;
-    background:url(assets/eyes.png) no-repeat center;
+    background:url("../assets/eyes.png") no-repeat center;
     animation: play 1s steps(3) infinite;
 }
 
@@ -664,6 +702,50 @@ video {
     font-size: calc(12px + 0.1vw);
 }
 
+.blinking{
+  animation-name:blinkingText;
+  animation-duration: 0.5s;
+  animation-iteration-count:2;
+  font-weight:bold;
+}
+
+.stat-scroller {
+    margin:0 auto;
+    bottom:0%;
+    position:absolute;
+    overflow:hidden;
+    white-space: nowrap;
+    left:40%;
+    right:40%;
+    font-family:'Lato-Regular';
+    font-size: 1vw;
+}
+
+.stat-scroller span {
+    display:inline-block;
+    padding-left:100%;
+    animation: scroll-marquee 60s linear infinite;
+}
+
+.scroll-marquee span {
+    animation-delay:30s;
+}
+
+@keyframes scroll-marquee {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(-100%, 0);
+    }
+  }
+
+@keyframes blinkingText{
+	75%{	color: transparent;	}
+	85%{	color: transparent;	}
+	99%{	color: transparent;	}
+}
+
 @keyframes fade-out {
     0% {
       opacity: 1;
@@ -672,6 +754,16 @@ video {
       opacity: 0;
     }
   }
+
+@-webkit-keyframes fadeinout {
+    0%,100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+@keyframes fadeinout {
+    0%,100% { opacity: 0; }
+    50% { opacity: 1; }
+}
 
 @keyframes play {
     from { background-position-x:    0px; }
@@ -723,12 +815,12 @@ video {
 
 @font-face {
     font-family: Zapfino;
-    src: url('fonts/zapfino.otf');
+    src: url("../fonts/zapfino.otf");
 }
 
 @font-face {
     font-family: Lato-Regular;
-    src: url('fonts/lato.woff2'), url('fonts/lato.svg');
+    src: url("../fonts/lato.woff2"), url("../fonts/lato.svg");
 }
 
 
@@ -853,8 +945,17 @@ video {
         bottom:1%;
     }
 
+    .goll-info {
+        font-family: Lato-Regular, serif;
+        font-size:1.25vw;
+    }
+
     #metadata-container {
         display:none;
+    }
+
+    .cheat-action, .skip-action {
+        margin-top:4px;
     }
 }
 
@@ -882,7 +983,7 @@ video {
     .goll-container8 {
         grid-template-columns: repeat(8, auto);
     }
-            
+     
     .page-title {
         font-family:Zapfino, serif;
         font-weight: normal;
@@ -1032,5 +1133,3 @@ video {
         display:none;
     }
 }
-
-
