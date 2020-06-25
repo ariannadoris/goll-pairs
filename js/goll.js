@@ -2,13 +2,15 @@
  * Game Logics
  * 
  */
-let numberOfPairs = 4;
+let STARTING_PAIRS = 4;
+let numberOfPairs = STARTING_PAIRS;
 let MAX_NUM_CARDS = 32;
 let SECONDS_PER_CARD = 3;
 let CHEAT_MIN_SCORE = 100;
 let cd = null;
 let logics = null;
 let timeRemaining = 0;
+let currentLevel = 0;
 
 class CardDefinition {
     constructor(numberOfCards) {
@@ -94,6 +96,10 @@ class Logics {
         if(this.scorePoints < 0)
             this.scorePoints = 0;
         this.score.innerText = String(this.scorePoints).padStart(8, " ");
+        this.score.classList.add("blinking");
+        setTimeout( () => {
+            this.score.classList.remove("blinking");
+        }, 1000);
         this.evalCheatButton();
         console.log("New score is " + this.scorePoints);
         this.setHighscore();
@@ -156,8 +162,15 @@ class Logics {
             this.shuffleDeck();
             this.evalCheatButton();
             document.getElementById('board').classList.add('visible');
+            document.getElementById('level').classList.remove('hidden');
+            document.getElementById('quit').classList.remove('hidden');
             this.startCountDown();
         }, 500);
+
+        setTimeout(() => {
+            document.getElementById('settings-bar').classList.remove('colorbar-fade-in-out');
+        }, 1500);
+        
 
         this.hideCards();
         this.setHighscore();
@@ -178,6 +191,8 @@ class Logics {
     startCountDown() {
         clearInterval(this.countDown);
         this.countDown = this.startTimer();
+        currentLevel ++;
+        document.getElementById('current-level').innerText = "Round " + currentLevel;
     }
 
     evalCheatButton() {
@@ -209,6 +224,7 @@ class Logics {
                 }, 1000);
                 console.log("You have cheated");
                 this.setScore(-100);
+                stats("cheated", 1);
                 break;
             }
         }
@@ -245,6 +261,8 @@ class Logics {
             this.displayMetadata(card1, 0);
 
             console.log("You have won. Time remaining: " + timeRemaining);
+            stats("gamesWon", 1);
+
             if(timeRemaining > 0) {
                 this.setScore(timeRemaining);
             }
@@ -258,6 +276,10 @@ class Logics {
                 this.stopSound("intro-music");
             }
             this.playSound("win-game");
+            document.getElementById("win-game").onended = function() {
+                document.getElementById("cht").classList.remove("hidden");
+            }
+
             document.getElementById('status').classList.add('hidden');
         }
         else {
@@ -288,6 +310,10 @@ class Logics {
         if(this.isTurnable(card)) {
             this.totalMoves ++;
             this.moves.innerText = this.totalMoves;
+            stats("lifeTimeMoves", 1);
+            newHighStats("worstGame", this.totalMoves);
+            newLowStats("bestGame", this.totalMoves);
+
             card.classList.add('visible');
 
             if(this.currentCard) {
@@ -341,7 +367,10 @@ class Logics {
         else {
             createMetadataElement(card.getElementsByTagName("img")[0].getAttribute("src"));
         }
+    }
 
+    resetScore() {
+        this.scorePoints = 0;
     }
 }
 
@@ -352,6 +381,7 @@ function setupActions()
         console.log("You choose to skip this game");
         logics.playSound("skip-button");
         logics.delayedStart();
+        stats("skippedGames", 1);
     });
 
     document.getElementById('cheat-action').addEventListener( 'click', () => {
@@ -418,9 +448,20 @@ function layout()
     console.log("The new deck counts "+ newCards.length + " cards");
 }
 
+function gameClear() {
+    currentLevel = 0;
+    numberOfPairs = STARTING_PAIRS;
+    timeRemaining = 0;
+    document.getElementById('level').classList.add('hidden');
+    document.getElementById('quit').classList.add('hidden');
+    if(logics != null)
+        logics.resetScore();
+}
+
 function ready() {
  
     loadColor();
+    gameClear();
 
     setState();
 
@@ -436,7 +477,8 @@ function ready() {
 
     congratulations.forEach(p => {
         p.addEventListener('click', () => {
-
+            document.getElementById('level').classList.add('hidden');
+            document.getElementById('quit').classList.add('hidden');
             clearMetadata();
 
             logics.stopSound("win-game");
@@ -450,9 +492,9 @@ function ready() {
             cards = Array.from(document.getElementsByClassName('card'));
             logics.setCards(cards);
             logics.delayedStart();
+            
         })
     });
-
 
     console.log("Game ready");
 }
@@ -464,10 +506,3 @@ function restoreGame() {
         timeRemaining = 0;
     }
 }
-/*
-if(document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', ready());
-} else {
-    ready();
-}
-*/

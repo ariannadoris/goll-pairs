@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <link rel="stylesheet" type="text/css" href="goll.css">
-   <link id="colorcss" rel="stylesheet" type="text/css" href="goll-black.css">
+   <link rel="stylesheet" type="text/css" href="styles/goll.css">
+   <link id="colorcss" rel="stylesheet" type="text/css" href="styles/goll-black.css">
    <!-- load the lovely sentences -->
-   <script src="text.js"></script>
+   <script src="js/text.js"></script>
 
    <!-- game settings-->
-   <script src="colors.js"></script>
+   <script src="js/settings.js"></script>
 
    <!-- metadata
    <script src="metadata/arts.js"></script>
@@ -16,11 +16,11 @@
    -->
 
    <!-- index cards and metadata -->
-   <script src="metadata/metadata-en.js"></script>
-   <script src="archive.js"></script>
+   <script src="archive/metadata/metadata-en.js"></script>
+   <script src="js/archive.js"></script>
 
    <!-- game logics -->
-   <script src="goll.js" async></script>
+   <script src="js/goll.js" async></script>
 
    <!-- the plugin that displays the index cards-->
    <link href="lightgallery/lightgallery.css" rel="stylesheet">
@@ -29,11 +29,24 @@
    <title>Goll Pairs</title>
 
    <!-- favicons -->
-   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+   <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+   <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+   <link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+   <link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+   <link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+   <link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+   <link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+   <link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+   <link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+   <link rel="icon" type="image/png" sizes="192x192" href="android-icon-192x192.png">
    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+   <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-   <link rel="manifest" href="site.webmanifest">
+   <link rel="manifest" href="site.manifest.json">
    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+
+   <meta name="msapplication-TileColor" content="#ffffff">
+   <meta name="msapplication-TileImage" content="ms-icon-144x144.png">
    <meta name="msapplication-TileColor" content="#da532c">
    <meta name="theme-color" content="#ffffff">
    <meta name="description" content="Concentration Game, Card Game, Memory Card Game, Pairs Card Game, Pairs, Memory, Claire Goll, Yvan Goll">
@@ -69,7 +82,6 @@
                     document.getElementById("start").classList.add("blink");   
                 }, false);
             </script>
-
         </div>
 
         <div class="audiobar">
@@ -93,6 +105,14 @@
                 <div id="start" class="button is-action" onclick="onGameClicked();">Start</div>
             </div>
         </div>
+
+        <div class="stat-scroller">
+            <p class="scroll-marquee">
+                <span id="stats">
+                    
+                </span>
+            </p>
+        </div>
     </div>
 
     <div id="about" class="hidden">
@@ -101,6 +121,9 @@
             <p id="about-pause" class="hint">(Click to Pause/Resume)</p>
             <p class="marquee-about" id="about-story">
                <span id="about-scroller">
+
+                    <br/>
+                    <br/>
                
                     Goll Pairs<br/>
                     <br/>
@@ -188,13 +211,13 @@
                     <br/>
                     <br/>
                     <br/>
+
                     <br/>
                     <br/>
                     <br/>
                     <br/>
                     <br/>
-      
-      
+
                </span>
             </p>
          </div>
@@ -331,7 +354,6 @@
                 CD, Sandra Quadflieg + Ulrich Tukur lesen Claire und Yvan Goll,<br/>
                 &#171; Nichts fehlt - ausser Dir &#187;, Random House Audio<br/>
 
-
                 <br/>
                 <br/>
                 <br/>
@@ -429,9 +451,6 @@
                 CD, Sandra Quadflieg + Ulrich Tukur lesen Claire und Yvan Goll,<br/>
                 &#171; Nichts fehlt - ausser Dir &#187;, Random House Audio<br/>
 
-
-
-
                 <br/>
                 <br/>
                 <br/>
@@ -479,7 +498,7 @@
                 <div id="lightgallery"></div> <!-- container for index cards -->
             </div>
     
-            <div class="colorbar"> <!-- game settings bar -->
+            <div class="colorbar colorbar-fade-in-out" id="settings-bar"> <!-- game settings bar -->
                 <ul class="color-select">
                     <li class="black circle" onclick="changeColor(0);">&nbsp;</li>
                     <li class="white circle" onclick="changeColor(1);">&nbsp;</li>
@@ -493,7 +512,7 @@
                     <li class="brown circle" onclick="changeColor(9);">&nbsp;</li>
                     <li class="circle music-off circle-lightgrey" id="music2" onclick="toggleMusic();"></li>
                     <li class="circle sound-off circle-lightgrey" id="sound2" onclick="toggleSound();"></li>
-                    <li class="circle back circle-lightgrey is-action" onclick="onMainClicked();"></li>
+            <!--    <li class="circle back circle-lightgrey is-action" onclick="onMainClicked();"></li> -->
                 </ul>
             </div>
     
@@ -529,11 +548,18 @@
                 
                 </div>
             </div>
+
+            <div id="level" class="level hidden">
+                <span id="current-level">1</span>
+            </div>
+
+            <div id="quit" class="quit">
+                <div class="circle back circle-lightgrey is-action quit-button" onclick="onMainClicked();"></div>
+            </div>
+
         </div>
-     
     </div>
     
-        
     <!-- load audio assets -->
     <audio id="flip-card">
         <source src="assets/card-flip.wav" type="audio/wav">
@@ -556,7 +582,6 @@
     <audio id="skip-button">
         <source src="assets/skip-button.wav" type="audio/wav">
     </audio>
-    
 
     <script>
         initDefaults();
@@ -570,44 +595,6 @@
         document.getElementById("about-story").addEventListener("click", function() {
             document.getElementById("about-scroller").classList.toggle("paused");
         });
-
-        function hide(containers) {
-            for( let i = 0; i < containers.length; i ++ ) {
-                document.getElementById(containers[i]).classList.add("hidden");
-                document.getElementById(containers[i]).classList.remove("visible");
-            }
-        }
-
-        function show(containerName) {
-            document.getElementById(containerName).classList.remove("hidden");
-            document.getElementById(containerName).classList.add("visible");
-        }
-
-        function onAboutClicked() {
-            hide( ["main", "gollstory", "game"]);
-            show("about");
-        }
-
-        function onStoryClicked() {
-            hide( ["main", "about", "game"]);
-            show("gollstory");
-        }
-
-        function onGameClicked() {
-            hide( ["main", "about", "gollstory"]);
-            ready();
-            show("game");
-        }
-
-        function onMainClicked() {
-            hide( ["game", "about", "gollstory"]);
-            show("main");
-
-            let vid = document.getElementById("introvideo");
-            vid.currentTime = 0;
-            vid.play();
-        }
-
     </script>
     <!-- load lightgallery plugins -->
     <script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>

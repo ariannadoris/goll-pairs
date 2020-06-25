@@ -11,13 +11,11 @@ let colorMaps = [
     "brown"
 ];
 
-let isChrome = navigator.userAgent.indexOf("Chrome") > -1;
-
 function createStylesheet(name) {
     var head = document.head;
     var link = document.createElement("link");
     link.type = "text/css";
-    link.href = "goll-"+ name + ".css";
+    link.href = "styles/goll-"+ name + ".css";
     link.rel = "stylesheet";
     link.id = "colorcss";
 
@@ -167,7 +165,6 @@ function toggleSound() {
     localStorage.setItem("sound", soundEnabled);
 }
 
-
 function displayHighscore() {
     let elem = document.getElementById("highscore");
     if(elem != null) {
@@ -176,4 +173,134 @@ function displayHighscore() {
             elem.innerText = "Highscore: " + highscore;
         }
     }
+}
+
+function hide(containers) {
+    for( let i = 0; i < containers.length; i ++ ) {
+        document.getElementById(containers[i]).classList.add("hidden");
+        document.getElementById(containers[i]).classList.remove("visible");
+    }
+}
+
+function show(containerName) {
+    document.getElementById(containerName).classList.remove("hidden");
+    document.getElementById(containerName).classList.add("visible");
+}
+
+function onAboutClicked() {
+    hide( ["main", "gollstory", "game"]);
+    show("about");
+}
+
+function onStoryClicked() {
+    hide( ["main", "about", "game"]);
+    show("gollstory");
+}
+
+function onGameClicked() {
+    hide( ["main", "about", "gollstory"]);
+    ready();
+    show("game");
+}
+
+function onMainClicked() {
+    hide( ["game", "about", "gollstory"]);
+    show("main");
+
+    let vid = document.getElementById("introvideo");
+    vid.currentTime = 0;
+    vid.play();
+
+    getStats();
+}
+
+function stats(name, val) {
+    let x = localStorage.getItem(name);
+    let value = Number(val);
+    if( x == null || x === undefined) {
+        x = value;
+    }
+    else {
+        x += Number(value);
+    }
+    localStorage.setItem(name, x);
+}
+
+function newHighStats(name,val)
+{
+    let x = localStorage.getItem(name);
+    let value = Number(val);
+    if( x == null || x === undefined) {
+        x = value;
+    }
+    else {
+        if( value > x ) {
+         x = value;
+        }
+    }
+    localStorage.setItem(name, x);
+}
+
+function newLowStats(name,val)
+{
+    let x = localStorage.getItem(name);
+    let value = Number(val);
+    if( x == null || x === undefined) {
+        x = value;
+    }
+    else {
+        if( value < x ) {
+            x = value;
+        }
+    }
+    localStorage.setItem(name, x);
+}
+
+function getStatLine(names, oneLiner, ending)
+{
+    let x = 0;
+    for(let i = 0; i < names.length; i ++ ) {
+        let x1 = localStorage.getItem(names[i]);
+        if( x1 != null && x1 !== undefined) {
+            x += Number(x1);
+        }
+    }
+
+    if( x == 0 )
+      return "";
+
+    let text = oneLiner;
+    if(ending != null) {
+        text += " " + x + ending;
+    }
+    else {
+        text += ": " + x;
+    }
+    text += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+    
+    return text;
+}
+
+function getStats()
+{
+    let text = "";
+
+    text += getStatLine( ["gamesWon", "skipped" ],  "Total games played ",null);
+    text += getStatLine( ["gamesWon"], "Total games won ",null);
+    text += getStatLine( ["skippedGames"], "Total times forfeited ",null);
+    text += getStatLine( ["cheated"], "Total times cheated ",null);
+    text += getStatLine( ["lifeTimeMoves"], "Total moves played ",null);
+    text += getStatLine( ["worstGame"], "Your toughest game took ", " moves");
+    text += getStatLine( ["bestGame"], "Your best game took only ", " moves");
+    text += getStatLine( ["highscore"], "Your best score is ",null);
+
+    text += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+       
+    let elem = document.getElementById("stats");
+    while(elem.firstChild) {
+        elem.removeChild(elem.lastChild);
+    }
+
+    elem.innerHTML = text;
+
 }

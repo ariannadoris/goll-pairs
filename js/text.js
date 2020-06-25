@@ -84,16 +84,22 @@ function getCongratulationPoem() {
     return str;
 }
 
+function getCongratulationHelpMessage() {
+    return "<p id=\"cht\" class=\"congratulations-help hidden\">Click to continue</p>";
+}
+
 function setCongratulationMessage(numberOfPairs) {
     let youWon = document.getElementById("you-won");
     let index = Math.floor(Math.random() * 10);
 
     if( numberOfPairs <= 8 || index != 5) {
-        youWon.innerText = getCongratulationMessage();
+        youWon.innerHTML = getCongratulationMessage();
+        youWon.innerHTML += getCongratulationHelpMessage();
         youWon.classList.add('visible');
     }
     else {
         youWon.innerHTML = getCongratulationPoem();
+        youWon.innerHTML += getCongratulationHelpMessage();
         youWon.classList.add('poem');
     }
 }
