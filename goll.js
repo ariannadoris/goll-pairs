@@ -241,6 +241,9 @@ class Logics {
         console.log("The cards match");
         this.playSound("match-card");
         if(this.matchedCards.length == this.cards.length) {
+
+            this.displayMetadata(card1, 0);
+
             console.log("You have won. Time remaining: " + timeRemaining);
             if(timeRemaining > 0) {
                 this.setScore(timeRemaining);
@@ -259,8 +262,10 @@ class Logics {
         }
         else {
             this.setScore(100);
+
+            this.displayMetadata(card1, 1000);
         }
-        this.displayMetadata(card1, 1000);
+        
     }
 
     unmatchCards(card1, card2) {
@@ -387,8 +392,7 @@ function layout()
     let newCards = Array.from(document.getElementsByClassName('card'));
     newCards.forEach( c=> {
         c.addEventListener('click', () => {
-            clearMetadata();
-
+            
             if( !c.classList.contains("inactive")) {
                 console.log("Clicked card "+ c.getElementsByTagName("img")[0].getAttribute("src"));
                 logics.turnCard(c);
@@ -432,6 +436,9 @@ function ready() {
 
     congratulations.forEach(p => {
         p.addEventListener('click', () => {
+
+            clearMetadata();
+
             logics.stopSound("win-game");
             p.classList.remove('visible');
             p.classList.remove('poem');
