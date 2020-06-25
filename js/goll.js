@@ -92,7 +92,7 @@ class Logics {
     }
 
     setScore(points) {
-        this.scorePoints += Number(points);
+        this.scorePoints = Number(this.scorePoints) + Number(points);
         if(this.scorePoints < 0)
             this.scorePoints = 0;
         this.score.innerText = String(this.scorePoints).padStart(8, " ");

@@ -221,7 +221,7 @@ function stats(name, val) {
         x = value;
     }
     else {
-        x += Number(value);
+        x = Number(x) + Number(value);
     }
     localStorage.setItem(name, x);
 }
@@ -235,7 +235,7 @@ function newHighStats(name,val)
     }
     else {
         if( value > x ) {
-         x = value;
+            x = value;
         }
     }
     localStorage.setItem(name, x);
@@ -262,7 +262,7 @@ function getStatLine(names, oneLiner, ending)
     for(let i = 0; i < names.length; i ++ ) {
         let x1 = localStorage.getItem(names[i]);
         if( x1 != null && x1 !== undefined) {
-            x += Number(x1);
+            x = Number(x) + Number(x1);
         }
     }
 
