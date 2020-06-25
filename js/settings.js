@@ -216,12 +216,11 @@ function onMainClicked() {
 
 function stats(name, val) {
     let x = localStorage.getItem(name);
-    let value = Number(val);
     if( x == null || x === undefined) {
-        x = value;
+        x = val;
     }
     else {
-        x = Number(x) + Number(value);
+        x = Number(x) + Number(val);
     }
     localStorage.setItem(name, x);
 }
