@@ -512,7 +512,7 @@ video {
 }
 
 .level {
-    font-size: calc(12px + 1.5vw);
+    font-size: calc(12px + 0.75vw);
     position:absolute;
     bottom:0%;
     right:0%;
@@ -685,7 +685,7 @@ video {
     padding-right: 1vw;
     display:block;
     margin:auto;
-    width:55vh;   
+    width:22vw;
 }
 
 .large-screen {
@@ -875,7 +875,7 @@ video {
 }
 */
 
-@media only screen and (orientation: landscape) and (max-width: 1480px)
+@media only screen and (orientation: landscape) and (max-width:1024px)
 {
     .goll-container {
         display: none;
@@ -950,8 +950,8 @@ video {
         font-size:1.25vw;
     }
 
-    #metadata-container {
-        display:none;
+    .metadata-container {
+        width: 16vw;
     }
 
     .cheat-action, .skip-action {
@@ -960,7 +960,7 @@ video {
 }
 
 
-@media only screen and (orientation: landscape) and (min-width: 1480px)
+@media only screen and (orientation: landscape) and (min-width: 1024px)
 {
     .goll-container {
         display: none;
@@ -1001,6 +1001,7 @@ video {
     .large-screen {
         width:23vh;
     }
+
 }
 
 @media only screen and (orientation: portrait)
