@@ -57,12 +57,33 @@
    <meta property="og:title" content="Goll Pairs"/>
    <meta property="og:type" content="website"/>
    <meta property="og:url" content="https://c0ntrol.github.io/goll-pairs"/>
-   <meta property="og:image" content="https://c0ntrol.github.io/goll-pairs/assets/gollpairs.png"/>
-   <meta property="og:audio" content="https://c0ntrol.github.io/goll-pairs/assets/intro.mp3"/>
+   <meta property="og:image" content="assets/gollpairs.png"/>
+   <meta property="og:audio" content="assets/intro.mp3"/>
    <meta property="og:description" content="A card game about the lives of Yvan and Clair Goll"/>
-   <meta property="og:video" content="https://c0ntrol.github.io/goll-pairs/assets/goll-black.webm"/>
+   <meta property="og:video" content="assets/goll-black.webm"/>
 </head>
 <body>
+
+    <div class="hidden">
+        <section itemscope itemtype="http://schema.org/Game">
+            <span itemprop="audience" itemscope itemtype="http://schema.org/PeopleAudience">
+             <span itemprop="suggestMinAge">5</span>
+            </span>
+            <p itemprop="name">Goll Pairs</p>
+            <img src="assets/gollpairs.png" itemprop="thumbnailUrl">
+            <p itemprop="description">
+                Goll Pairs is a card game in which all the cards are laid face down on a surface and the player flips two cards at each turn. 
+                The objective of the game is to find matching pairs of cards.
+                Goll Pairs connects the cards to the digital dataset Yvon and Claire Goll, creating common ground in a fun way.
+                Once played, the amazing artworks will remain in people's minds 
+                <span itemprop="gameboard"></span>
+                <span itemprop="numberOfPlayers" itemscope itemtype="http://schema.org/QuantitativeValue">
+                    <span itemprop="minValue">1</span>
+                    <span itemprop="maxValue">1</span>
+                </span>
+            </p>
+        </section>
+    </div>
 
     <div id="main">
         <h1 class="page-title is-action" onClick="onAboutClicked();">Goll Pairs</h1>
