@@ -278,7 +278,7 @@ class Logics {
             this.playSound("win-game");
             document.getElementById("win-game").onended = function() {
                 document.getElementById("cht").classList.remove("hidden");
-            }
+            };
 
             document.getElementById('status').classList.add('hidden');
         }
