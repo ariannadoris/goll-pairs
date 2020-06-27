@@ -262,6 +262,7 @@ class Logics {
 
             console.log("You have won. Time remaining: " + timeRemaining);
             stats("gamesWon", 1);
+            newLowStats("bestGame", this.totalMoves);
 
             if(timeRemaining > 0) {
                 this.setScore(timeRemaining);
@@ -312,8 +313,7 @@ class Logics {
             this.moves.innerText = this.totalMoves;
             stats("lifeTimeMoves", 1);
             newHighStats("worstGame", this.totalMoves);
-            newLowStats("bestGame", this.totalMoves);
-
+            
             card.classList.add('visible');
 
             if(this.currentCard) {
