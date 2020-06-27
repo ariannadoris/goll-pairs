@@ -222,7 +222,7 @@ class Logics {
                     this.cards[randomCard].classList.remove('inactive');
                     document.getElementById('cheat-action').classList.remove('inactive');
                 }, 1000);
-                console.log("You have cheated");
+                
                 this.setScore(-100);
                 stats("cheated", 1);
                 break;
@@ -245,6 +245,23 @@ class Logics {
             this.unmatchCards(card, this.currentCard);
         }
         this.currentCard = null;
+    }
+
+    cheatCard() {
+
+        if( this.currentCard == null) {
+            this.cheat();
+            return;
+        }
+
+        this.cards.forEach( c=> {
+             if( this.getCard(c) === this.getCard(this.currentCard)) {
+                 this.turnCard(c);
+             }
+        });
+
+        this.setScore(-200);
+        stats("cheated", 1);
     }
 
     matchCards(card1, card2) {
@@ -304,7 +321,12 @@ class Logics {
     }
 
     getCard(card) {
-        return card.getElementsByClassName('card-value')[0].src;
+        if(card == null)
+            return null;
+        let elem = card.getElementsByClassName('card-value');
+        if( elem == null || elem.length == 0)
+            return null;
+        return elem[0].src;
     }
 
     turnCard(card) {
@@ -386,7 +408,7 @@ function setupActions()
 
     document.getElementById('cheat-action').addEventListener( 'click', () => {
         if( !document.getElementById('cheat-action').classList.contains("inactive")) {
-            logics.cheat();
+            logics.cheatCard();
         } else {
             console.log("Cheat button is inactive");
         }
