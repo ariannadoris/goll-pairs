@@ -262,6 +262,7 @@ class Logics {
 
             console.log("You have won. Time remaining: " + timeRemaining);
             stats("gamesWon", 1);
+            newLowStats("bestGame", this.totalMoves);
 
             if(timeRemaining > 0) {
                 this.setScore(timeRemaining);
@@ -312,8 +313,7 @@ class Logics {
             this.moves.innerText = this.totalMoves;
             stats("lifeTimeMoves", 1);
             newHighStats("worstGame", this.totalMoves);
-            newLowStats("bestGame", this.totalMoves);
-
+            
             card.classList.add('visible');
 
             if(this.currentCard) {
@@ -476,7 +476,7 @@ function ready() {
     logics.delayedStart();
 
     congratulations.forEach(p => {
-        p.addEventListener('click', () => {
+        p.addEventListener('click', (e) => {
             document.getElementById('level').classList.add('hidden');
             document.getElementById('quit').classList.add('hidden');
             clearMetadata();
@@ -486,13 +486,15 @@ function ready() {
             p.classList.remove('poem');
             if(numberOfPairs < 16)
                 numberOfPairs = numberOfPairs * 2;
-                
+            
             layout();
             
             cards = Array.from(document.getElementsByClassName('card'));
             logics.setCards(cards);
             logics.delayedStart();
             
+            e.stopImmediatePropagation();
+
         })
     });
 
