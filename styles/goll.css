@@ -932,7 +932,7 @@ video {
         min-height:0px;
     }
 
-    #introvideo {
+    .introvideo {
         width:50vw;
         height:50vh;
     }
@@ -1111,7 +1111,7 @@ video {
         min-height:6vh;
     }
 
-    #introvideo {
+    .introvideo {
         width:100vw;
     }
 

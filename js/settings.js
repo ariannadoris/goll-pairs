@@ -45,10 +45,8 @@ function changeColor(index) {
                 console.log("Browser does not play mp4 or webm video files");
             }
         }
-        if(video != null) {
-            video.load();
-            video.play();
-        }
+        
+        fengsFix("introvideo", "main", "canvas");     
     }
 
     console.log("Selected theme " + colorMaps[index]);

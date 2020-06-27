@@ -39,15 +39,16 @@ function setVideoBgColor(vid, backgroundElement) {
 }
 
 function resizeWindow() {
-    vidWidth = vid.videoWidth;
-    vidHeight = vid.videoHeight;
+    vidWidth = vid.style.width;
+    vidHeight = vid.style.height;
 
     canvas.width = vid.offsetWidth * ratio;
     canvas.height = vid.offsetHeight * ratio;
 
-    canvas.style.width = vid.offsetWidth + "px";
-    canvas.style.height = vid.offsetHeight + "px";
-
+    canvas.style.left = vid.style.left;
+    canvas.style.top = vid.style.top;
+    canvas.style.right = vid.style.right;
+    canvas.style.bottom = vid.style.bottom;
     //redraw canvas after resize
     ctx.drawImage(vid, 0, 0, vidWidth, vidHeight, // source rectangle
         0, 0, canvas.width, canvas.height); // destination rectangle);
@@ -61,8 +62,6 @@ function loadedMetadata() {
     canvas.width = vid.offsetWidth * ratio;
     canvas.height = vid.offsetHeight * ratio;
 
-    canvas.style.width = vid.offsetWidth + "px";
-    canvas.style.height = vid.offsetHeight + "px";
     canvas.style.left = vid.style.left;
     canvas.style.top = vid.style.top;
     canvas.style.right = vid.style.right;
