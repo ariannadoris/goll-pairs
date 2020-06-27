@@ -85,10 +85,10 @@ function fixAutoPlay() {
     document.removeEventListener('scroll', fixAutoPlay);
 }
 
-function fengsFix(videoId, wrapperId, canvasId) {
+function fengsFix(videoId, canvasId) {
        
     vid = document.getElementById(videoId);
-    wrapper = document.getElementById(wrapperId);
+    wrapper = document.getElementsByTagName('body')[0];
     canvas = document.getElementById(canvasId);
     ctx = canvas.getContext('2d');
     ratio = window.devicePixelRatio || 1;
