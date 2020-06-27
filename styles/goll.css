@@ -1081,9 +1081,8 @@ video {
     }
 
     .marquee span, .marquee-about span {
-        line-height: 3vw;
-        font-size: calc(10px + 1.25vw);
-        margin-left: 2.5vw;
+        line-height: 3vh;
+        font-size: calc(10px + 0.25vw);
     }
 
     .action-button {

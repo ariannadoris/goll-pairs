@@ -46,7 +46,7 @@ function changeColor(index) {
             }
         }
         
-        fengsFix("introvideo", "main", "canvas");     
+        fengsFix("introvideo", "canvas");     
     }
 
     console.log("Selected theme " + colorMaps[index]);
