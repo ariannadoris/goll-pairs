@@ -22,7 +22,7 @@ For each pair of cards that you match, you will be awarded points. If you comple
 Having points, you will have the option to cheat - To quickely turn a card without taking a turn, or when you already have turned a card, to find the matching card to make a pair.
 Doing this however, will cost you points. There is no game-over and each time you win a game, you will be greeted by a lovely message.
 The game starts easy, with a deck of just 8 cards but it progresses quickely to a deck of 32 cards.
-
+While playing, you will have the opportunity to learn more about the artworks presented. After you have made a match, a little information about the context of the work is displayed and you can double tap or click the card to see the Museum's original index cards. Ofcourse, the timer is paused when you are in the gallery.
 
 
 # Legal
