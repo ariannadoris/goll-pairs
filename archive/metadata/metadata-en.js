@@ -219,7 +219,7 @@ var metadataInformation = [
         "DESCRIPTION": "Woman with a vase",
         "MATERIALS": "Drawing with Indian ink (brush), poster",
         "DIMENSIONS": "0.32X0.25 m",
-        "AUTHOR": "Fernand Lége"
+        "AUTHOR": "Fernand Léger"
     }
     ,
     {
