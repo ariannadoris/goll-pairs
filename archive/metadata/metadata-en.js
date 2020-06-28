@@ -40,7 +40,7 @@ var metadataInformation = [
         "MEDIA": "T.",
         "INVENTORY": "2003-4,5",
         "CLASSIFICATION": "VIII171",
-        "DESCRIPTION": "TTOIMATA (1920-1950) Selected Poems",
+        "DESCRIPTION": "TTOIMATA (1920-1950) Selected Poems. Drawings by Fernand Léger",
         "MATERIALS": "Paperback (cutting sheets) 310 pages",
         "DIMENSIONS": "0.25X0.18 m",
         "AUTHOR": "Yvan Goll, Greek translation by E. X. GONATAS"
@@ -52,7 +52,7 @@ var metadataInformation = [
         "MEDIA": "T.",
         "INVENTORY": "2003-4,5",
         "CLASSIFICATION": "VIII171",
-        "DESCRIPTION": "TTOIMATA (1920-1950) Selected Poems",
+        "DESCRIPTION": "TTOIMATA (1920-1950) Selected Poems. Drawings by Fernand Léger",
         "MATERIALS": "Paperback (cutting sheets) 310 pages",
         "DIMENSIONS": "0.25X0.18 m",
         "AUTHOR": "Yvan Goll, Greek translation by E. X. GONATAS"
@@ -64,7 +64,7 @@ var metadataInformation = [
         "MEDIA": "T.",
         "INVENTORY": "2003-4,5",
         "CLASSIFICATION": "VIII171",
-        "DESCRIPTION": "TTOIMATA (1920-1950) Selected Poems",
+        "DESCRIPTION": "TTOIMATA (1920-1950) Selected Poems. Drawings by Fernand Léger",
         "MATERIALS": "Paperback (cutting sheets) 310 pages",
         "DIMENSIONS": "0.25X0.18 m",
         "AUTHOR": "Yvan Goll, Greek translation by E. X. GONATAS"
@@ -88,19 +88,7 @@ var metadataInformation = [
         "INVENTORY": "4769.",
         "CLASSIFICATION": "VIIIE122 (a, b)",
         "DESCRIPTION": "Die Antirose",
-        "MATERIALS": "Paperback, illustrated cover",
-        "DIMENSIONS": "19,7X12 cm",
-        "AUTHOR": "Ivan und Claire Goll"
-    }
-    ,
-    {
-        "ID": "000122.",
-        "LOCATION": "MUSEE PIERRE NOEL",
-        "MEDIA": "T.",
-        "INVENTORY": "4769.",
-        "CLASSIFICATION": "VIIIE122 (a, b)",
-        "DESCRIPTION": "Die Antirose",
-        "MATERIALS": "Paperback, illustrated cover",
+        "MATERIALS": "Paperback, illustrated cover. Drawing by Marc Chagall",
         "DIMENSIONS": "19,7X12 cm",
         "AUTHOR": "Ivan und Claire Goll"
     }
@@ -133,7 +121,7 @@ var metadataInformation = [
         "MEDIA": "T.",
         "INVENTORY": "2003-45",
         "CLASSIFICATION": "VIII171",
-        "DESCRIPTION": "TTOIMATA (1920-1950) Selected Poems",
+        "DESCRIPTION": "TTOIMATA (1920-1950) Selected Poems. Drawings by Fernand Léger",
         "MATERIALS": "Paperback (cutting sheets) 310 pages",
         "DIMENSIONS": "0.25X0.18 m",
         "AUTHOR": "Yvan Goll, Greek translation by E. X. GONATAS"
@@ -157,7 +145,7 @@ var metadataInformation = [
         "MEDIA": "T.",
         "INVENTORY": "2003-45",
         "CLASSIFICATION": "VIII171",
-        "DESCRIPTION": "TTOIMATA (1920-1950) Selected Poems",
+        "DESCRIPTION": "TTOIMATA (1920-1950) Selected Poems. Drawings by Fernand Léger",
         "MATERIALS": "Paperback (cutting sheets) 310 pages",
         "DIMENSIONS": "0.25X0.18 m",
         "AUTHOR": "Yvan Goll, Greek translation by E. X. GONATAS"
@@ -169,7 +157,7 @@ var metadataInformation = [
         "MEDIA": "T.",
         "INVENTORY": "4780.",
         "CLASSIFICATION": "VIIIE133",
-        "DESCRIPTION": "Claire Goll",
+        "DESCRIPTION": "Claire Goll. Portrait by Joseph Sima (1930)",
         "MATERIALS": "Paperback",
         "DIMENSIONS": "16.1X13.4 cm",
         "AUTHOR": "Georges Cattaui, Edmée De La Rochefoucauld, Armand Lanoux."
@@ -181,7 +169,7 @@ var metadataInformation = [
         "MEDIA": "T.",
         "INVENTORY": "4777.",
         "CLASSIFICATION": "VIIIE130 (a,b)",
-        "DESCRIPTION": "Yvan Goll (2ex.)",
+        "DESCRIPTION": "Yvan Goll (2ex.). Claire and Yvan Goll by Marc Chacall (1925)",
         "MATERIALS": "Paperback",
         "DIMENSIONS": "15.8x13.5 cm",
         "AUTHOR": "Jules Romains, Francis Carmody, Moral Brion, Richard Exner."
@@ -193,7 +181,7 @@ var metadataInformation = [
         "MEDIA": "T.",
         "INVENTORY": "2003-45",
         "CLASSIFICATION": "VIII171",
-        "DESCRIPTION": "TTOIMATA (1920-1950) Selected Poems",
+        "DESCRIPTION": "TTOIMATA (1920-1950) Selected Poems. Drawings by Fernand Léger",
         "MATERIALS": "Paperback (cutting sheets) 310 pages",
         "DIMENSIONS": "0.25X0.18 m",
         "AUTHOR": "Yvan Goll, Greek translation by E. X. GONATAS"
@@ -231,7 +219,7 @@ var metadataInformation = [
         "DESCRIPTION": "Woman with a vase",
         "MATERIALS": "Drawing with Indian ink (brush), poster",
         "DIMENSIONS": "0.32X0.25 m",
-        "AUTHOR": "Fernand LEGER"
+        "AUTHOR": "Fernand Lége"
     }
     ,
     {
@@ -252,7 +240,7 @@ var metadataInformation = [
         "MEDIA": "T.",
         "INVENTORY": "4790.",
         "CLASSIFICATION": "VIIIE145",
-        "DESCRIPTION": "The Fine Ship. Poetry review",
+        "DESCRIPTION": "The Fine Ship. Poetry review, June 1939. Yvan Goll by Zadkine",
         "MATERIALS": "Paperback",
         "DIMENSIONS": "0.192X0.142X0.006 m"
     }
@@ -275,7 +263,7 @@ var metadataInformation = [
         "MEDIA": "T.",
         "INVENTORY": "2004-22.",
         "CLASSIFICATION": "VIII172",
-        "DESCRIPTION": "Europe. Monthly literary review (Yvan Goll)",
+        "DESCRIPTION": "Europe. Monthly literary review (Yvan Goll). Portrait of Yvan Goll by Lajos Tihany",
         "MATERIALS": "Paperback",
         "DIMENSIONS": "0.217X0.13 m",
         "AUTHOR": "Jean Bertho, Lionel Richard, Eric Robertson, Joseph Delteil, Barbara Glavert-Hesse, Ljubomir Micic, Marc Martin, Catherine Wermester, Albert Ronsin, Alain Virmaux, Henri Béhar, Philippe Brun, Joëlle Gardes Tamine, Pierre Ricas, Danier Grandidier."
@@ -327,6 +315,21 @@ var metadataInformation = [
         "MATERIALS": "Photo: black and white, glossy paper / original: pencil or charcoal drawing",
         "DIMENSIONS": "1: 258X204 mm / 2: 2397X211 mm",
         "AUTHOR": "Original: Albert Gleizes"
+    },
+    {
+        "ID": "n/a",
+        "LOCATION": "MUSEE PIERRE NOEL",
+        "MEDIA": "P",
+        "DESCRIPTION": "Drawing by",
+        "INVENTORY": "4967",
+        "DESCRIPTION": "Fernand Léger"
+    },
+    {
+        "ID": "n/a",
+        "LOCATION": "MUSEE PIERRE NOEL",
+        "MEDIA": "P",
+        "INVENTORY": "1980-297",
+        "DESCRIPTION": "Malaiische Liebeslieder. Drawing by Henri Matisse for the Japanese edition",
     }
 
 ];
