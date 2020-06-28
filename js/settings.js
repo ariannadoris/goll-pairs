@@ -43,10 +43,21 @@ function changeColor(index) {
             }
             else {
                 console.log("Browser does not play mp4 or webm video files");
+                let fbimg = document.getElementById("fallback");
+                fbimg.classList.remove("hidden");
+                fbimg.classList.add("fallback");
+                if( index == 1 || index == 2 || index == 8 ) {
+                   fbimg.setAttribute("src", "assets/gollpairs-b.png");
+                }
+                else {
+                    fbimg.setAttribute("src", "assets/gollpairs-w.png");
+                }
             }
         }
         
-        fengsFix("introvideo", "canvas");     
+        let vid = document.getElementById("introvideo");
+        vid.load();
+        vid.play();
     }
 
     console.log("Selected theme " + colorMaps[index]);
@@ -70,7 +81,6 @@ function initDefaults() {
     // always init game with sound on and music off
     localStorage.setItem("music", 0);
     localStorage.setItem("sound", 1);
-    
 }
 
 function setState() {
