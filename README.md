@@ -13,7 +13,7 @@ It was made available by a research collaboration between K8 Institut für strat
 # The Game
 
 The game is a browser based game written in HTML5, CSS3 and Javascript 6. You can play it in any modern browser, on a desktop PC, a notebook, tablet or on a mobile device.
-You can try it at https://c0ntrol.github.io/goll-pairs/index.html or https://ariannadoris.github.io/goll-pairs/index.html
+You can try it at https://c0ntrol.github.io/goll-pairs/index.html or https://ariannadoris.github.io/goll-pairs/index.html 
 
 # Gameplay
 
@@ -29,3 +29,8 @@ The game starts easy, with a deck of just 8 cards but it progresses quickely to 
 
 The source code is licensed as GNU/GPL v3. This is Free Software. 
 The media files are licensed as CC BY-NC-SA 4.0.
+
+# Links
+
+Hackdash: https://hackdash.org/projects/5ec1011a875b954b4a1d1453
+
