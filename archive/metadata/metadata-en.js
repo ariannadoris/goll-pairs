@@ -40,7 +40,7 @@ var metadataInformation = [
         "MEDIA": "T.",
         "INVENTORY": "2003-4,5",
         "CLASSIFICATION": "VIII171",
-        "DESCRIPTION": "TTOIMATA (1920-1950) Selected Poems. Drawings by Fernand Léger",
+        "DESCRIPTION": "TTOIMATA (1920-1950) Selected Poems. Drawings by Fernand Léger and Marc Chagall",
         "MATERIALS": "Paperback (cutting sheets) 310 pages",
         "DIMENSIONS": "0.25X0.18 m",
         "AUTHOR": "Yvan Goll, Greek translation by E. X. GONATAS"
@@ -52,7 +52,7 @@ var metadataInformation = [
         "MEDIA": "T.",
         "INVENTORY": "2003-4,5",
         "CLASSIFICATION": "VIII171",
-        "DESCRIPTION": "TTOIMATA (1920-1950) Selected Poems. Drawings by Fernand Léger",
+        "DESCRIPTION": "TTOIMATA (1920-1950) Selected Poems. Drawings by Fernand Léger and Marc Chagall",
         "MATERIALS": "Paperback (cutting sheets) 310 pages",
         "DIMENSIONS": "0.25X0.18 m",
         "AUTHOR": "Yvan Goll, Greek translation by E. X. GONATAS"
@@ -64,7 +64,7 @@ var metadataInformation = [
         "MEDIA": "T.",
         "INVENTORY": "2003-4,5",
         "CLASSIFICATION": "VIII171",
-        "DESCRIPTION": "TTOIMATA (1920-1950) Selected Poems. Drawings by Fernand Léger",
+        "DESCRIPTION": "TTOIMATA (1920-1950) Selected Poems. Drawings by Fernand Léger and Marc Chagall",
         "MATERIALS": "Paperback (cutting sheets) 310 pages",
         "DIMENSIONS": "0.25X0.18 m",
         "AUTHOR": "Yvan Goll, Greek translation by E. X. GONATAS"
@@ -121,7 +121,7 @@ var metadataInformation = [
         "MEDIA": "T.",
         "INVENTORY": "2003-45",
         "CLASSIFICATION": "VIII171",
-        "DESCRIPTION": "TTOIMATA (1920-1950) Selected Poems. Drawings by Fernand Léger",
+        "DESCRIPTION": "TTOIMATA (1920-1950) Selected Poems. Drawings by Fernand Léger and Marc Chagall",
         "MATERIALS": "Paperback (cutting sheets) 310 pages",
         "DIMENSIONS": "0.25X0.18 m",
         "AUTHOR": "Yvan Goll, Greek translation by E. X. GONATAS"
@@ -157,7 +157,7 @@ var metadataInformation = [
         "MEDIA": "T.",
         "INVENTORY": "4780.",
         "CLASSIFICATION": "VIIIE133",
-        "DESCRIPTION": "Claire Goll. Portrait by Joseph Sima (1930)",
+        "DESCRIPTION": "Claire Goll. Portraits by Joseph Sima (1930) and André Masson (1967)",
         "MATERIALS": "Paperback",
         "DIMENSIONS": "16.1X13.4 cm",
         "AUTHOR": "Georges Cattaui, Edmée De La Rochefoucauld, Armand Lanoux."
@@ -181,7 +181,7 @@ var metadataInformation = [
         "MEDIA": "T.",
         "INVENTORY": "2003-45",
         "CLASSIFICATION": "VIII171",
-        "DESCRIPTION": "TTOIMATA (1920-1950) Selected Poems. Drawings by Fernand Léger",
+        "DESCRIPTION": "TTOIMATA (1920-1950) Selected Poems. Drawings by Fernand Léger and Marc Chagall",
         "MATERIALS": "Paperback (cutting sheets) 310 pages",
         "DIMENSIONS": "0.25X0.18 m",
         "AUTHOR": "Yvan Goll, Greek translation by E. X. GONATAS"
@@ -193,7 +193,7 @@ var metadataInformation = [
         "MEDIA": "T.",
         "INVENTORY": "1985-86.",
         "CLASSIFICATION": "VIIIE162",
-        "DESCRIPTION": "Sodom Berlin by Yvan Goll",
+        "DESCRIPTION": "Sodom Berlin by Yvan Goll. The drawing is a self portrait by Yvan Goll",
         "MATERIALS": "Hardcover book",
         "DIMENSIONS": "0.21X0.12X0.016m",
         "AUTHOR": "Goll Yvan, translated from the French by Hans THILL, afterword by Karten WITTE."
@@ -205,7 +205,7 @@ var metadataInformation = [
         "MEDIA": "T.",
         "INVENTORY": "2004-23",
         "CLASSIFICATION": "VIII173",
-        "DESCRIPTION": "Surrealism No. 1",
+        "DESCRIPTION": "Surrealism No. 1. Illustration by Paula Ludwig",
         "MATERIALS": "Hardcover",
         "AUTHOR": "Ivan Goll, texts by Guillaume Apollinaire, Marcel Araland, Pierre Albert-Birot, René Crevel, Joseph Delteil, Robert Delaunay, Paul Demee, Jean Painlevé, Pierre Reverdy, Text by Jean Bertho"
     }
@@ -219,7 +219,7 @@ var metadataInformation = [
         "DESCRIPTION": "Woman with a vase",
         "MATERIALS": "Drawing with Indian ink (brush), poster",
         "DIMENSIONS": "0.32X0.25 m",
-        "AUTHOR": "Fernand Lége"
+        "AUTHOR": "Fernand Léger"
     }
     ,
     {
@@ -228,7 +228,7 @@ var metadataInformation = [
         "MEDIA": "T.",
         "INVENTORY": "4780.",
         "CLASSIFICATION": "VIIIE133",
-        "DESCRIPTION": "Claire Goll",
+        "DESCRIPTION": "Claire Goll. Portraits by Joseph Sima (1930) and André Masson (1967)",
         "MATERIALS": "Paperback",
         "DIMENSIONS": "16.1X13.4 cm",
         "AUTHOR": "Georges Cattaui, Edmée De La Rochefoucauld, Armand Lanoux."
@@ -320,9 +320,8 @@ var metadataInformation = [
         "ID": "n/a",
         "LOCATION": "MUSEE PIERRE NOEL",
         "MEDIA": "P",
-        "DESCRIPTION": "Drawing by",
         "INVENTORY": "4967",
-        "DESCRIPTION": "Fernand Léger"
+        "DESCRIPTION": "Drawing by Fernand Léger"
     },
     {
         "ID": "n/a",
