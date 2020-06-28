@@ -453,7 +453,7 @@ ul li:hover {
     animation-iteration-count: 3;
 }
 
-video {
+.video {
     text-align:center;
     margin:0 auto;
     display:block;
@@ -461,6 +461,19 @@ video {
     top: 50%;
     left: 50%;
     width:100%;
+    transform: translate(-50%, -50%);
+}
+
+.fallback {
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 90vw;
+    max-width: 512px;
+    max-height: 512px;
     transform: translate(-50%, -50%);
 }
 
@@ -932,7 +945,7 @@ video {
         min-height:0px;
     }
 
-    #introvideo {
+    .introvideo {
         width:50vw;
         height:50vh;
     }
@@ -951,7 +964,7 @@ video {
     }
 
     .metadata-container {
-        width: 16vw;
+        display:none;
     }
 
     .cheat-action, .skip-action {
@@ -1081,9 +1094,8 @@ video {
     }
 
     .marquee span, .marquee-about span {
-        line-height: 3vw;
-        font-size: calc(10px + 1.25vw);
-        margin-left: 2.5vw;
+        line-height: 3vh;
+        font-size: calc(10px + 0.25vw);
     }
 
     .action-button {
@@ -1100,6 +1112,10 @@ video {
 
     .cheat-icon:hover {
         pointer-events:none;
+        margin:0 auto;
+        width: 4.32vw;
+        height: 3vh;
+        background:url("../assets/eyes-up.png") no-repeat center;
     }
 
     .goll-action-right, .goll-action-left, .goll-action-center {
@@ -1111,7 +1127,7 @@ video {
         min-height:6vh;
     }
 
-    #introvideo {
+    .introvideo {
         width:100vw;
     }
 

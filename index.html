@@ -20,7 +20,7 @@
    <!-- index cards and metadata -->
    <script src="archive/metadata/metadata-en.js"></script>
    <script src="js/archive.js"></script>
-
+   
    <!-- game logics -->
    <script src="js/goll.js" async></script>
 
@@ -105,7 +105,9 @@
         </div>
 
         <div class="intro-video">
-            <video id="introvideo" width="720" height="512" autoplay muted>
+
+            <img src="assets/gollpairs-w.png" id="fallback" alt="your browser does not support this video format" class="hidden">
+            <video id="introvideo" width="720" height="512" autoplay muted playsinline class="introvideo video">
                 <source id="source" src="assets/goll-black.webm" type="video/ogv">
             </video>
             <script>
@@ -569,7 +571,7 @@
                         <div class="goll-action-center">
                             <div id="cheat-action" class="action-button tooltip">
                                 <div class="cheat-icon"></div>
-                                <span class="tooltiptext">Cheat and get a glimpse at a card</span>
+                                <span class="tooltiptext">Glimpse at ... or Match a card</span>
                             </div>
                         </div>
                     </div>

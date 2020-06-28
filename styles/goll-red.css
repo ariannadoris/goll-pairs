@@ -95,3 +95,16 @@ ul li a:active {
         font-size: 5vh;
     }
 }
+
+@media only screen and (orientation: portrait) {
+    @keyframes congratulations-grow {
+        from {
+            background-color: rgba(204,51,0,0);
+            font-size:0vh;
+        }
+        to {
+            background-color: rgba(204,51,0,.85);
+            font-size: 6vh;
+        }
+    }
+}
