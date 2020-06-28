@@ -33,4 +33,7 @@ The media files are licensed as CC BY-NC-SA 4.0.
 # Links
 
 Hackdash: https://hackdash.org/projects/5ec1011a875b954b4a1d1453
+Musee Pierre Noel: https://www.saint-die.eu/culture/musee-pierre-noel
+K8: https://www.k8.design/k8-start
+Coding Da Vinci: https://codingdavinci.de/events/saar-lor-lux/
 
